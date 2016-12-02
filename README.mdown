@@ -1,4 +1,4 @@
-# Meadowlark Travle Site
+# Ted Node Site
 
 A node written while following the
 [Ted github](https://github.com/flextedlinyc1983/).
