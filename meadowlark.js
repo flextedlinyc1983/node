@@ -7,6 +7,15 @@ var app = express();
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+
+app.use( express.static( __dirname + '/public' ) );
+
+app.use(function (req,res,next) {
+	res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
+	next();
+});
+
+
 app.get('/about',function (req, res) {
 
 	res.render('about',{fortune:"<p>abctest</p>"});
