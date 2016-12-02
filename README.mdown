@@ -1,0 +1,13 @@
+# Meadowlark Travle Site
+
+A node written while following the
+[Ted github](https://github.com/flextedlinyc1983/).
+
+Feel free to submit issues to provide feedback or ask questions.
+
+## Project Requirements
+
+* Node version: `0.10.x`
+
+* chai version: `^1.9.1`
+
