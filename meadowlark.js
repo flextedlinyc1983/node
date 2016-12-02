@@ -16,6 +16,13 @@ app.use(function (req,res,next) {
 });
 
 
+app.use(function (req,res,next) {
+	if(!res.locals.partials) res.locals.partials = {};
+	res.locals.partials.weather = {locations:[{name:'ted'},{name:'ted2'}]};
+	next();
+});
+
+
 app.get('/about',function (req, res) {
 
 	res.render('about',{fortune:"<p>abctest</p>"});
