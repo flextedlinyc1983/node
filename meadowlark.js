@@ -63,12 +63,43 @@ var mssql_demo_query = function (query_str) {
 	
 }
 
- 
+var demo_csv = function (id) {
+	
+// csvtojson modules 宣告
+var Converter = require("csvtojson").Converter;
+var newConverter = new Converter({});
+
+// csv 檔案位置/名稱，先存在變數中只是為了方便看 code.
+var csvfile = 'FL_insurance_sample_' + id + '.csv'
+
+// JSON 檔案儲存名稱
+var saveFileName = 'csvtojsonFL_insurance_sample_' + id + '.json';
+
+// read from file 
+// 利用 fs 讀取 csv 檔案並交給 csvtojson 解析
+fs.createReadStream( csvfile ).pipe( newConverter );
+
+// end_parsed will be emitted once parsing finished 
+// 當 csvtojson 結束解析的時候
+newConverter.on("end_parsed", function (jsonArray) {
+  // 可開啟這行在 Command Line 觀看 data 內容
+  // console.log(jsonArray); //here is your result jsonarray 
+  // 對 jsonArray 做處理，寫你的 code
+  // 儲存成 JSON
+  // fs.writeFile 使用 File System 的 writeFile 方法做儲存
+  // 傳入三個參數（ 存檔名, 資料, 格式 ）
+  fs.writeFile( saveFileName, JSON.stringify( jsonArray ), 'utf8');
+  console.log('csv to JSON done !!');
+});
+
+	
+}
+
 
 
 
 var mssql_demo = {query: mssql_demo_query };
-console.log(mssql_demo.query('select * from aa'))
+// console.log(mssql_demo.query('select * from aa'))
 
 
 
@@ -112,6 +143,10 @@ app.get('/about',function (req, res) {
 
 app.get('/demo',function (req, res) {
 
+	var table = req.query.table;
+
+	mssql_demo.query('select * from ' + table);
+
 	res.render('demo',{fortune:"<p>demo</p>"});
 	// res.type('text/plain');
 
@@ -124,6 +159,28 @@ app.get('/demo',function (req, res) {
 		
 	// });
 	// res.send('about');
+})
+
+
+app.get('/demo_csv',function (req, res) {
+
+
+
+	res.render('demo',{fortune:"<p>demo_csv</p>"});
+	// res.type('text/plain');
+
+	// fs.readFile(__dirname + '/about.html', function (err, data) {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		res.send(data);	
+	// 	}
+		
+	// });
+	// res.send('about');
+
+	var id = req.query.id;
+	demo_csv(id);
 })
 
 
