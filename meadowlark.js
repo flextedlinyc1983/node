@@ -63,6 +63,31 @@ var mssql_demo_query = function (query_str) {
 	
 }
 
+
+var mssql_create_table = function (table) {
+
+	var table = new sql.Table(table); // or temporary table, e.g. #temptable 
+	table.create = true;
+	table.columns.add('ID', sql.Int, {nullable: false, primary: true});
+	table.columns.add('stateCode', sql.VarChar(50), {nullable: false});
+	table.rows.add(3, 'test');
+	table.rows.add(4, 'test');
+	table.rows.add(5, 'test');
+	 
+
+	sql.connect(config, function(err) { 
+		var request = new sql.Request();
+		request.bulk(table, function(err, rowCount) {
+		    // ... error checks 
+		});
+
+	});
+
+	
+}
+
+
+
 var demo_csv = function (id) {
 	
 // csvtojson modules 宣告
@@ -88,8 +113,9 @@ newConverter.on("end_parsed", function (jsonArray) {
   // 儲存成 JSON
   // fs.writeFile 使用 File System 的 writeFile 方法做儲存
   // 傳入三個參數（ 存檔名, 資料, 格式 ）
-  fs.writeFile( saveFileName, JSON.stringify( jsonArray ), 'utf8');
+  // fs.writeFile( saveFileName, JSON.stringify( jsonArray ), 'utf8');
   console.log('csv to JSON done !!');
+  // return JSON.stringify( jsonArray );
 });
 
 	
@@ -123,6 +149,30 @@ app.use(function (req,res,next) {
 	res.locals.partials.weather = {locations:[{name:'ted'},{name:'ted2'}]};
 	next();
 });
+
+app.get('/demo_csv',function (req, res) {
+
+
+
+
+	// res.type('text/plain');
+
+	// fs.readFile(__dirname + '/about.html', function (err, data) {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		res.send(data);	
+	// 	}
+		
+	// });
+	// res.send('about');
+
+	var id = req.query.id;
+	demo_csv(id);
+	var json = [{"policyID":119736,"statecode":"FL","county":"CLAY COUNTY","eq_site_limit":498960,"hu_site_limit":498960,"fl_site_limit":498960,"fr_site_limit":498960,"tiv_2011":498960,"tiv_2012":792148.9,"eq_site_deductible":0,"hu_site_deductible":9979.2,"fl_site_deductible":0,"fr_site_deductible":0,"point_latitude":30.102261,"point_longitude":-81.711777,"line":"Residential","construction":"Masonry","point_granularity":1},{"policyID":448094,"statecode":"FL","county":"CLAY COUNTY","eq_site_limit":1322376.3,"hu_site_limit":1322376.3,"fl_site_limit":1322376.3,"fr_site_limit":1322376.3,"tiv_2011":1322376.3,"tiv_2012":1438163.57,"eq_site_deductible":0,"hu_site_deductible":0,"fl_site_deductible":0,"fr_site_deductible":0,"point_latitude":30.063936,"point_longitude":-81.707664,"line":"Residential","construction":"Masonry","point_granularity":3}];
+	res.render('demo_csv',{fortune:"<p>demo_csv111</p>", json:json});
+	// console.log(json)
+})
 
 
 app.get('/about',function (req, res) {
@@ -161,12 +211,13 @@ app.get('/demo',function (req, res) {
 	// res.send('about');
 })
 
+app.get('/demo_create_table',function (req, res) {
 
-app.get('/demo_csv',function (req, res) {
+	var table = req.query.table;
 
+	mssql_create_table(table);
 
-
-	res.render('demo',{fortune:"<p>demo_csv</p>"});
+	res.render('demo',{fortune:"<p>demo</p>"});
 	// res.type('text/plain');
 
 	// fs.readFile(__dirname + '/about.html', function (err, data) {
@@ -178,10 +229,10 @@ app.get('/demo_csv',function (req, res) {
 		
 	// });
 	// res.send('about');
-
-	var id = req.query.id;
-	demo_csv(id);
 })
+
+
+
 
 
 app.set('port', 3000);

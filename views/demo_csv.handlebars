@@ -1,3 +1,21 @@
-<h1>about {{{fortune}}}</h1>
+<h1>{{{fortune}}}</h1>
 
 {{> weather}}
+
+
+<h1>json</h1>
+
+
+policyID
+<ul>
+{{#each json}}
+	<li>{{policyID}}</li>
+{{/each}}
+</ul>
+
+statecode
+<ul>
+{{#each json}}
+	<li>{{statecode}}</li>
+{{/each}}
+</ul>
