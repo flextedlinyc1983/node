@@ -231,6 +231,24 @@ app.get('/demo_create_table',function (req, res) {
 	// res.send('about');
 })
 
+app.get('/:a?/:b?/:c?',function (req, res) {
+
+	
+
+	res.render('demo',{fortune:"<p>demo</p>" + req.params.a + req.params.b + req.params.c});
+	// res.type('text/plain');
+
+	// fs.readFile(__dirname + '/about.html', function (err, data) {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		res.send(data);	
+	// 	}
+		
+	// });
+	// res.send('about');
+})
+
 
 
 
