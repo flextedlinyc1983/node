@@ -39,6 +39,22 @@ app.get('/about',function (req, res) {
 	// res.send('about');
 })
 
+app.get('/demo',function (req, res) {
+
+	res.render('demo',{fortune:"<p>demo</p>"});
+	// res.type('text/plain');
+
+	// fs.readFile(__dirname + '/about.html', function (err, data) {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		res.send(data);	
+	// 	}
+		
+	// });
+	// res.send('about');
+})
+
 
 app.set('port', 3000);
 app.listen(app.get('port'), function () {
