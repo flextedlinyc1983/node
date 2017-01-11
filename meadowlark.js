@@ -275,8 +275,57 @@ app.put('/images/:id?', function(req, res) {
 
 		console.log(req.body);
 		
+		if(req.body.type == 'create'){
+console.log(req.body.id);
+console.log(req.body.title);
+console.log('create');
+		    new sql.Request().query("insert into Todos (id,title) values (" + req.body.id + ",'" + req.body.title.toString() + "') ").then(function(recordset) {
+		        // console.log(recordset);
+		        // gtitle = recordset.Properties.Item("title");
+		        // console.log(recordset[0][0].value);
+		        // console.log(recordset.length);
+		        // console.log(recordset[0][0]);
+		        // gMessage = recordset;
+		    }).catch(function(err) {
+			        // ... query error checks 
+			        console.log(err)
+			});	    
+
+		}
+		else{
+console.log('update');
+			new sql.Request().query("update Todos set title = " + req.body.title + " WHERE id = " + req.params.id).then(function(recordset) {
+		        // console.log(recordset);
+		        // gtitle = recordset.Properties.Item("title");
+		        // console.log(recordset[0][0].value);
+		        // console.log(recordset.length);
+		        // console.log(recordset[0][0]);
+		        // gMessage = recordset;
+		    }).catch(function(err) {
+		        // ... query error checks 
+
+		    });
+
+		}
+	    	    
+	}).catch(function(err) {
+	    // ... connect error checks 
+	});
+	res.json({ message: "update ok!" });
+})
+
+app.delete('/images/:id?', function(req, res) {
+     // res.json({        
+    //     message: 'The put api for image: ' + req.params.id
+    // })
+
+    sql.connect("mssql://sa:@localhost/test").then(function() {
+		// Query     
+
+		console.log(req.body);
 		
-	    new sql.Request().query("update Todos set title = " + req.body.title + " WHERE id = " + req.params.id).then(function(recordset) {
+		
+	    new sql.Request().query("DELETE FROM Todos WHERE id = " + req.params.id).then(function(recordset) {
 	        // console.log(recordset);
 	        // gtitle = recordset.Properties.Item("title");
 	        // console.log(recordset[0][0].value);
@@ -290,12 +339,14 @@ app.put('/images/:id?', function(req, res) {
 	}).catch(function(err) {
 	    // ... connect error checks 
 	});
-})
+	res.json({ message: "delete ok!" });
+});
 app.post('/images', function(req, res) {
     // res.json({        
     //     message: 'The put api for image: ' + req.params.id
     // })
-
+console.log(req.params.id);
+console.log(req.params.title);
     sql.connect("mssql://sa:@localhost/test").then(function() {
 		// Query     
 	    new sql.Request().query("insert into test.dbo.Todos (id,title) values (" + req.params.id + "," + req.params.title + ") ").then(function(recordset) {
@@ -311,6 +362,7 @@ app.post('/images', function(req, res) {
 	}).catch(function(err) {
 	    // ... connect error checks 
 	});
+	res.json({ message: "post ok!" });
 })
 
 app.get('/sqltodos?',function (req, res) {
