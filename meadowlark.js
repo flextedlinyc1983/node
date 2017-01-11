@@ -175,8 +175,51 @@ app.get('/demo_csv',function (req, res) {
 	// console.log(json)
 })
 
+app.get('/about_detail/:id?',function (req, res) {
+
+	console.log(req.params.id);
+	sql.connect("mssql://sa:@localhost/test").then(function() {
+		// Query     
+	    new sql.Request().query('select * from about_detail where id=' + req.params.id).then(function(recordset) {
+	        // console.log(recordset);
+	        // gtitle = recordset.Properties.Item("title");
+	        // console.log(recordset[0][0].value);
+	        // console.log(recordset.length);
+	        // console.log(recordset[0][0]);
+	        gAbout_detail = recordset;
+	        console.log(recordset);
+	    }).catch(function(err) {
+	        // ... query error checks 
+	    });	    
+	}).catch(function(err) {
+	    // ... connect error checks 
+	});
+
+	res.render('about_detail',{fortune:"<p>abctest</p>"});
+	
+	
+	
+})
+
+app.get('/about_detail/ajax/:a?',function (req, res) {
+
+	var x = '';
+ 
+	
+
+	// res.render('sqltest',{fortune:"<p>mssql</p>" + x});
+
+	res.json({ message: gAbout_detail });
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
+
+
 
 app.get('/about',function (req, res) {
+
+
 
 	res.render('about',{fortune:"<p>abctest</p>"});
 	// res.type('text/plain');
@@ -257,6 +300,8 @@ app.get('/demo_create_table',function (req, res) {
 	// });
 	// res.send('about');
 })
+
+app.disable('etag');
 app.get('/images', function(req, res) {
     res.json(gMessage);
 });
@@ -371,7 +416,7 @@ app.get('/sqltodos?',function (req, res) {
  
 	sql.connect("mssql://sa:@localhost/test").then(function() {
 		// Query     
-	    new sql.Request().query('select * from Todos').then(function(recordset) {
+	    new sql.Request().query('select * from Todos order by id').then(function(recordset) {
 	        // console.log(recordset);
 	        // gtitle = recordset.Properties.Item("title");
 	        // console.log(recordset[0][0].value);
