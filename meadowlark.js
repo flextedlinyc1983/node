@@ -1,7 +1,8 @@
 var express = require('express');
+var router = express.Router();
 var fs = require('fs');
 var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
-
+var sql = require('mssql');
 
 
 var sql = require('mssql');
@@ -189,6 +190,32 @@ app.get('/about',function (req, res) {
 		
 	// });
 	// res.send('about');
+	
+	console.log('about\n');
+})
+
+app.get('/sqltest/:a?',function (req, res) {
+
+	var x = '';
+ 
+	sql.connect("mssql://sa:@localhost/flaps").then(function() {
+		// Query     
+	    new sql.Request().query('select * from AAA').then(function(recordset) {
+	        console.dir(recordset);
+	        x = recordset.Properties.Item("Name");
+	    }).catch(function(err) {
+	        // ... query error checks 
+	    });	    
+	}).catch(function(err) {
+	    // ... connect error checks 
+	});
+
+	res.render('sqltest',{fortune:"<p>mssql</p>" + x});
+
+	
+	console.log('sqltest\n');
+	console.log('sqltest\n');
+	console.log('regisID: "' + req.params.a + '"');
 })
 
 app.get('/demo',function (req, res) {
@@ -230,6 +257,89 @@ app.get('/demo_create_table',function (req, res) {
 	// });
 	// res.send('about');
 })
+app.get('/images', function(req, res) {
+    res.json(gMessage);
+});
+
+var bodyParser = require('body-parser')
+// parse application/json
+app.use(bodyParser.json())
+
+app.put('/images/:id?', function(req, res) {
+    // res.json({        
+    //     message: 'The put api for image: ' + req.params.id
+    // })
+
+    sql.connect("mssql://sa:@localhost/test").then(function() {
+		// Query     
+
+		console.log(req.body);
+		
+		
+	    new sql.Request().query("update Todos set title = " + req.body.title + " WHERE id = " + req.params.id).then(function(recordset) {
+	        // console.log(recordset);
+	        // gtitle = recordset.Properties.Item("title");
+	        // console.log(recordset[0][0].value);
+	        // console.log(recordset.length);
+	        // console.log(recordset[0][0]);
+	        // gMessage = recordset;
+	    }).catch(function(err) {
+	        // ... query error checks 
+
+	    });	    
+	}).catch(function(err) {
+	    // ... connect error checks 
+	});
+})
+app.post('/images', function(req, res) {
+    // res.json({        
+    //     message: 'The put api for image: ' + req.params.id
+    // })
+
+    sql.connect("mssql://sa:@localhost/test").then(function() {
+		// Query     
+	    new sql.Request().query("insert into test.dbo.Todos (id,title) values (" + req.params.id + "," + req.params.title + ") ").then(function(recordset) {
+	        // console.log(recordset);
+	        // gtitle = recordset.Properties.Item("title");
+	        // console.log(recordset[0][0].value);
+	        // console.log(recordset.length);
+	        // console.log(recordset[0][0]);
+	        // gMessage = recordset;
+	    }).catch(function(err) {
+	        // ... query error checks 
+	    });	    
+	}).catch(function(err) {
+	    // ... connect error checks 
+	});
+})
+
+app.get('/sqltodos?',function (req, res) {
+
+	var x = '';
+ 
+	sql.connect("mssql://sa:@localhost/test").then(function() {
+		// Query     
+	    new sql.Request().query('select * from Todos').then(function(recordset) {
+	        // console.log(recordset);
+	        // gtitle = recordset.Properties.Item("title");
+	        // console.log(recordset[0][0].value);
+	        // console.log(recordset.length);
+	        // console.log(recordset[0][0]);
+	        gMessage = recordset;
+	    }).catch(function(err) {
+	        // ... query error checks 
+	    });	    
+	}).catch(function(err) {
+	    // ... connect error checks 
+	});
+
+	// res.render('sqltest',{fortune:"<p>mssql</p>" + x});
+
+	res.json({ message: "ok!" });
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
 
 app.get('/:a?/:b?/:c?',function (req, res) {
 
