@@ -1,0 +1,22 @@
+.gotopBtn {
+    background: url(/images/goCloseArrow.png);
+    background-repeat: no-repeat;
+    background-position: 14px 6px;
+    background-color: #ffffff;
+    background-size: 18px auto;
+    border: 1px solid #dadada;
+    border-radius: 45px;
+    bottom: 115px;
+    color: #000000;
+    cursor: pointer;
+    display: none;
+    font: bold 15px/58px Century Gothic;
+    height: 45px;
+    opacity: 0.6;
+    padding: 0;
+    position: fixed;
+    right: 10px;
+    text-align: center;
+    width: 45px;
+    z-index: 10;
+}
