@@ -6,10 +6,16 @@
 <h2>h2 about {{{fortune}}}</h2>
 
 <script src="/js/backbone_demo.js"></script>
---}}
 
+<script src="/js/require.js" data-main="main" ></script>
+--}}
+<link rel="stylesheet" type="text/css" href="/vender/about.css">
+<link rel="stylesheet" type="text/css" href="/vender/slick-theme.css">
 <script src="/js/about_detail.js"></script>   
 <script src="/js/common_utility.js"></script>
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
 <div data-role="page">      
     
@@ -21,10 +27,20 @@
 
     <div data-role="content">
 
-      ok
+      <div class='demoslick'>
+      </div>
     </div>
     {{> commonfooter}}          
 </div>
+
+
+<script type="text/template" id="aboutDetail-template">
+    <a href="#" idName="<%= id %>"><%= description %></a>    
+</script>
+
+<script type="text/template" id="aboutDetail-image-template">    
+    <img src="<%= url %>" style='max-height: 200px;margin: 0 auto;' >    
+</script>
 
 
 
