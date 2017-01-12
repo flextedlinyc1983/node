@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
-<div data-role="page">      
+<div data-role="page" id="pageMain">      
     
     <div data-role="header" data-position="fixed" data-tap-toggle="false" style="height: 50px;background-color: #f6f6f6;">
         <div>
@@ -27,6 +27,12 @@
 
     <div data-role="content">
 
+      <div data-role="controlgroup" data-type="horizontal">
+        <a data-role="button" data-inline="true" buttonName="Main">Main</a>
+        <a data-role="button" data-inline="true" href="#pageSecond" buttonName="Second">Second</a>
+        <a data-role="button" data-inline="true">Third</a>
+      </div>
+
       <div class='demoslick'>
       </div>
 
@@ -34,6 +40,25 @@
         <ul>
         </ul>
       </div>
+
+    </div>
+    {{> commonfooter}}          
+</div>
+
+
+<div data-role="page" id="pageSecond">      
+    
+    
+
+    <div data-role="content">
+
+      <div data-role="controlgroup" data-type="horizontal">
+        <a data-role="button" data-inline="true" href="#pageMain" buttonName="Main">Main</a>
+        <a data-role="button" data-inline="true" href="#pageSecond" buttonName="Second">Second</a>
+        <a data-role="button" data-inline="true">Third</a>
+      </div>
+
+      hello
 
     </div>
     {{> commonfooter}}          

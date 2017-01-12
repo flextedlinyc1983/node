@@ -7,7 +7,7 @@ $(document).on('mobileinit', function() {
 //     $.mobile.linkBindingEnabled = false;
 //     $.mobile.hashListeningEnabled = false;
 //     $.mobile.pushStateEnabled = false;
-//     $.mobile.defaultPageTransition = "none";
+    $.mobile.defaultPageTransition = "none";
 //     // $.mobile.defaultPageTransition = "fade";
 //     // $.mobile.defaultPageTransition = "slide";
 //     // $.mobile.autoInitializePage = false;
