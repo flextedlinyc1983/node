@@ -29,6 +29,12 @@
 
       <div class='demoslick'>
       </div>
+
+      <div class="goodsList"> 
+        <ul>
+        </ul>
+      </div>
+
     </div>
     {{> commonfooter}}          
 </div>
@@ -41,6 +47,18 @@
 <script type="text/template" id="aboutDetail-image-template">    
     <img src="<%= url %>" style='max-height: 200px;margin: 0 auto;' >    
 </script>
+
+
+<script type="text/template" id="aboutDetail-good-template">    
+    <a title="<%= title %>"> 
+        <img src="<%= image %>">
+        <p class="goodDescription"><%= description %></p>
+        <p class="goodTitle">【<%= title %>】</p> 
+        <p class="goodPrice">$<b><%= price %></b></p>
+    </a>
+</script>
+
+
 
 
 

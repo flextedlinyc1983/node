@@ -20,3 +20,79 @@
     width: 45px;
     z-index: 10;
 }
+
+.goodsList ul {
+    margin: 0px;
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.goodsList ul li {
+    float: left;
+    width: 50%;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    box-sizing: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.goodsList ul li:nth-child(odd) {
+    padding: 0px 5px 0px 0px;
+}
+
+.goodsList ul li:nth-child(even) {
+    padding: 0px 0px 0px 5px;
+}
+
+.goodsList ul li a img {
+    width: 100%;
+    display: inline-block;
+    border: 0px;
+    vertical-align: top;
+}
+
+.goodsList ul li a {
+    background-color: #FFFFFF;
+    width: 100%;
+    margin: 0px;
+    padding: 0px 0px 10px 0px;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.goodsList ul li a .goodDescription {
+    font: 13px/20px Helvetica;
+    color: #DD2726;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.goodsList ul li a .goodTitle {
+    height: 40px;
+    margin: 5px 10px 0px 10px;
+    overflow: hidden;
+
+    font: 15px/20px Helvetica;
+    color: #484848;
+    margin: 5px 10px 0px 10px;
+    padding: 0px;
+}
+
+.goodsList ul li a .goodPrice {
+    height: 20px;
+    font: 12px/20px Helvetica;
+    color: #D62872;
+    overflow: hidden;
+    position: relative;
+
+    margin: 5px 10px 0px 10px;
+    padding: 0px;
+}

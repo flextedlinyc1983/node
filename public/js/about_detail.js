@@ -23,6 +23,17 @@ $(document).ready(function () {
         
     });
 
+	$.ajax("/goods",{           
+    }).done(function(result){        
+
+        if(!!result.message){
+    		getGoodsView(result.message);        	
+        }
+        
+    });
+
+    
+
 
 
 
@@ -55,7 +66,7 @@ $(document).ready(function () {
 		$('[data-role=content]').append(aboutDetailView.el);
    	}
 
-
+	
 
 
 
@@ -67,9 +78,15 @@ $(document).ready(function () {
 		var ImageList = Backbone.Collection.extend({
 		    model: Backbone.Model,		
 		});
+		var GoodList = Backbone.Collection.extend({
+		    model: Backbone.Model,		
+		});
 		return {
 			ImageList:ImageList,
+			GoodList:GoodList,
 		}
+
+		
 	};
 
 	var collections = Collections();
@@ -99,12 +116,54 @@ $(document).ready(function () {
 		        return this;
 		    },	
 		}); 
+
+
+		var GoodListView = Backbone.View.extend({
+		    // model: ImageList,
+		    model: collections.GoodList,		    
+		    el: $(".goodsList"),
+		    render: function() {	
+		         return this;
+		    },		    
+		    initialize: function () {		      
+		        this.listenTo(this.model, 'add', this.addOne);		         
+		    },
+		    addOne: function(good) {
+		      var view = new GoodView({model: good});
+		      $(this.el).find('ul').append(view.render().el);
+		    },		    
+		});
+
+		var GoodView = Backbone.View.extend({
+		    tagName: 'li',
+		    template: _.template($("#aboutDetail-good-template").html()),
+		    render: function() {		      
+		        $(this.el).html(this.template(this.model.toJSON())); 		        
+		        return this;
+		    },	
+		}); 
+
 		return {
 			ImageListView:ImageListView,
+			GoodListView:GoodListView,
 		}
 	}
 
 	var views = Views();
+
+
+	var getGoodsView = function (goods) {
+   		var collectionFactory = new CollectionFactory();
+		var goodList = collectionFactory.createCollection({collectionType:"GoodListCollection",collectionClass:collections.GoodList});
+		// var imageListView = new ImageListView({model:imageList});
+		var viewFactory = new ViewFactory();
+		var imageListView = viewFactory.createView({viewType:"GoodListView",viewClass:views.GoodListView,model:goodList});
+		_.each(goods, function(good){
+			// console.log(good)	
+			if (good) goodList.add(good);
+		}, this);
+		
+   	}
 
 
   	var getImageSlick = function (images) {
@@ -161,13 +220,13 @@ $(document).ready(function () {
 		    case "ImageListView":
 		      this.viewClass = options.viewClass;
 		      break;
-		    // case "truck":
-		    //   this.viewClass = Truck;
-		    //   break;
+		    case "GoodListView":
+		      this.viewClass = options.viewClass;
+		      break;
 		    //defaults to VehicleFactory.prototype.vehicleClass (Car)
 		  }
 		 
-		  return new this.viewClass( {model:options.model} );
+		 return new this.viewClass( {model:options.model} );
 		 
 	};
 
@@ -186,9 +245,9 @@ $(document).ready(function () {
 		    case "ImageListCollection":
 		      this.collectionClass = options.collectionClass;
 		      break;
-		    // case "truck":
-		    //   this.viewClass = Truck;
-		    //   break;
+		    case "truck":
+		      this.collectionClass = options.collectionClass;
+		      break;
 		    //defaults to VehicleFactory.prototype.vehicleClass (Car)
 		  }
 		 

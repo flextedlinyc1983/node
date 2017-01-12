@@ -191,6 +191,19 @@ app.get('/about_detail/:id?',function (req, res) {
 	    }).catch(function(err) {
 	        // ... query error checks 
 	    });	    
+
+	    new sql.Request().query('select * from Goods').then(function(recordset) {
+	        // console.log(recordset);
+	        // gtitle = recordset.Properties.Item("title");
+	        // console.log(recordset[0][0].value);
+	        // console.log(recordset.length);
+	        // console.log(recordset[0][0]);
+	        gGoods = recordset;
+	        console.log(recordset);
+	    }).catch(function(err) {
+	        // ... query error checks 
+	    });
+
 	}).catch(function(err) {
 	    // ... connect error checks 
 	});
@@ -210,6 +223,20 @@ app.get('/about_detail/ajax/:a?',function (req, res) {
 	// res.render('sqltest',{fortune:"<p>mssql</p>" + x});
 
 	res.json({ message: gAbout_detail });
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
+
+app.get('/goods',function (req, res) {
+
+	var x = '';
+ 
+	
+
+	// res.render('sqltest',{fortune:"<p>mssql</p>" + x});
+
+	res.json({ message: gGoods });
 	// console.log('sqltest\n');
 	// console.log('sqltest\n');
 	// console.log('regisID: "' + req.params.a + '"');
