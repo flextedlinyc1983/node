@@ -160,11 +160,17 @@ $(document).ready(function () {
 		var imageListView = viewFactory.createView({viewType:"GoodListView",viewClass:views.GoodListView,model:goodList});
 		_.each(goods, function(good){
 			// console.log(good)	
-			if (good) goodList.add(good);
+			if (good) {
+				good.price = numberWithCommas(good.price);
+				goodList.add(good);
+			}
+			
 		}, this);
 		
    	}
-
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
 
   	var getImageSlick = function (images) {
   		console.log(images);
