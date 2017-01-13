@@ -264,6 +264,26 @@ app.get('/about',function (req, res) {
 	console.log('about\n');
 })
 
+app.get('/testpubsub',function (req, res) {
+
+
+
+	res.render('testpubsub',{fortune:"<p>abctest</p>"});
+	// res.type('text/plain');
+
+	// fs.readFile(__dirname + '/about.html', function (err, data) {
+	// 	if(err){
+	// 		console.log(err);
+	// 	}else{
+	// 		res.send(data);	
+	// 	}
+		
+	// });
+	// res.send('about');
+	
+	console.log('testpubsub\n');
+})
+
 app.get('/sqltest/:a?',function (req, res) {
 
 	var x = '';
