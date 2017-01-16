@@ -1,0 +1,61 @@
+{{!--
+<h1>about {{{fortune}}}</h1>
+
+{{> weather}}
+
+<h2>h2 about {{{fortune}}}</h2>
+
+
+    <link rel="stylesheet" type="text/css" href="/vender/about.css">
+    <script src="/js/backbone_demo.js"></script>
+    <script src="/js/common_utility.js"></script>
+
+
+<div data-role="page">                                    
+    <div data-role="content">
+
+        <div id='addDiv'>
+        <label>title</label>
+        <input id='titleName'></input>
+        <button class='addbutton'>submit</button>
+        </div>
+
+
+        <ul id='todoapp' data-role="listview" style="padding-top: 20px;">
+        </ul>
+          
+    </div>
+    {{> commonfooter}}   
+</div>
+
+<script src="/js/backbone.localStorage.js"></script>
+<script src="/js/backbone-websql.js"></script>
+
+<script src="/js/testpubsub.js"></script>
+
+<script id="userTemplate" type="text/html">
+   <li><%= name %></li>
+</script>
+
+<script id="ratingsTemplate" type="text/html">
+   <li><strong><%= title %></strong> was rated <%= rating %>/5</li>
+</script>
+--}}
+
+<script src="/js/require.js"></script>
+<script>
+require(["require_test"], function() {
+  $(function(){
+  console.log('test')
+  });
+  
+});
+</script>
+<div data-role="page">                                    
+    <div data-role="content">
+      
+       testrequire
+          
+    </div>
+    {{> commonfooter}}   
+</div>
