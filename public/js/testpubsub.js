@@ -1,19 +1,48 @@
 $(document).ready(function () {
 	$.ajaxSetup({ cache: false });
 	console.log('hello');
-
+	var db = openDatabase("ratings", "", "Backbone-websql example", 1024*1024);	
 	var Collections = function () {
 		var RatingList = Backbone.Collection.extend({
-		    model: Backbone.Model,		
+		    // model: Backbone.Model,	
+		    model: Connect,	
+		    // store: new WebSQLStore(db, "ratings"),
+		    // store: "",
+		    localStorage: new Backbone.LocalStorage('ratings-backbone'),
+		    getMaxId: function () {
+			  	var max = 0;
+				this.each(function(model){
+					if(model.id > max){
+						max = model.id;
+				   }
+				});
+				return max;
+			},
+			
+		});	
+		TestList = Backbone.Collection.extend({
+		    // model: Backbone.Model,	
+		    // model: Connect,	
+		    store: new WebSQLStore(db, "tests"),
+		    // store: "",
+		    // localStorage: new Backbone.LocalStorage('ratings-backbone'),		    
 		});		
 		return {
-			RatingList:RatingList,			
+			RatingList:RatingList,	
+			TestList,TestList,		
 		}
 
 		
 	};
 
+	Connect = Backbone.Model.extend({		
+		idAttribute: "connectId",	
+	});
+
+
 	var collections = Collections();
+
+	testList = new TestList();
 
 	var Views = function () {
 		var RatingView = Backbone.View.extend({
@@ -223,8 +252,14 @@ $(document).ready(function () {
 	  // ratings.
 	  $.subscribe( "/new/rating", function( e, data ){
 	 
-	    if( data.elID ){	 		
-	 		ratingListView.model.add({ title: data.title, rating: data.rating});      	 
+	    if( data.elID ){	
+	    	if(ratingListView.model.localStorage)
+			{
+				ratingListView.model.create({ title: data.title, rating: data.rating,connectId: ratingListView.model.getMaxId() + 1});      	 	
+			}else if(ratingListView.model.store){
+				ratingListView.model.create({ title: data.title, rating: data.rating});      	 	
+			}
+	 		
 	    }
 	 
 	  });
