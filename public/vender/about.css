@@ -102,3 +102,7 @@
   text-align: center;
   margin-bottom: 30px;
 }
+
+#tabs li.active{color: aqua;}
+#tabsContent div {display:none;}
+#tabsContent div.active {display:block;}
