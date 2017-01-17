@@ -6,6 +6,8 @@ var sql = require('mssql');
 
 
 var sql = require('mssql');
+
+var Photo = require('./models/Photo');
  
 var config = {
     user: 'sa',
@@ -288,7 +290,7 @@ app.get('/testrequire',function (req, res) {
 
 
 
-	res.render('testrequire',{fortune:"<p>abctest</p>"});
+	// res.render('testrequire',{fortune:"<p>abctest</p>"});
 	// res.type('text/plain');
 
 	// fs.readFile(__dirname + '/about.html', function (err, data) {
@@ -302,6 +304,18 @@ app.get('/testrequire',function (req, res) {
 	// res.send('about');
 	
 	console.log('testrequire\n');
+
+
+	Photo.create({name:"belle",path:"/home/belle"},function (err) {
+		console.log('create err: ' + err);
+	})
+
+
+	Photo.find({},function (err,photos) {
+		console.log('photos: ' + photos);
+		console.log('err: ' + err);
+		res.render('testrequire',{fortune:"<p>abctest</p>",photos:photos});
+	})
 })
 
 app.get('/sqltest/:a?',function (req, res) {
