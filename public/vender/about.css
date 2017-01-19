@@ -106,3 +106,7 @@
 #tabs li.active{color: aqua;}
 #tabsContent div {display:none;}
 #tabsContent div.active {display:block;}
+
+#tabs2 li.active{color: aqua;}
+#tabsContent2 div {display:none;}
+#tabsContent2 div.active {display:block;}

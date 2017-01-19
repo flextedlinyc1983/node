@@ -318,6 +318,64 @@ app.get('/testrequire',function (req, res) {
 	})
 })
 
+
+app.get('/api/test123',function (req, res) {
+
+	Photo.find({},function (err,photos) {
+		console.log('photos: ' + photos);
+		console.log('err: ' + err);
+		res.render('testrequire',{fortune:"<p>abctest</p>",photos:photos});
+		res.json({ message: "ok!",photos:photos });
+	})
+
+	
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
+
+app.get('/api/test123',function (req, res) {
+
+	Photo.find({},function (err,photos) {
+		console.log('photos: ' + photos);
+		console.log('err: ' + err);
+		res.render('testrequire',{fortune:"<p>abctest</p>",photos:photos});
+		res.json({ message: "ok!",photos:photos });
+	})
+
+	
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
+
+var bodyParser = require('body-parser')
+// parse application/json
+app.use(bodyParser.json())
+
+
+app.put('/api/test123/:_id',function (req, res) {
+	console.log('body: ' + req.body);
+	// res.json({ message: "ok!",body:req.body });
+	var query = {'_id':req.body._id};
+	Photo.findOneAndUpdate(query, {path:req.body.path}, {upsert:true}, function(err, doc){
+    	if (err) return res.send(500, { error: err });
+    	return res.json({ message: "ok!",body:req.body });
+	});
+
+	// Photo.find({},function (err,photos) {
+	// 	console.log('photos: ' + photos);
+	// 	console.log('err: ' + err);
+	// 	res.render('testrequire',{fortune:"<p>abctest</p>",photos:photos});
+	// 	res.json({ message: "ok!",photos:photos });
+	// })
+
+	
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
+
 app.get('/sqltest/:a?',function (req, res) {
 
 	var x = '';
@@ -387,9 +445,7 @@ app.get('/images', function(req, res) {
     res.json(gMessage);
 });
 
-var bodyParser = require('body-parser')
-// parse application/json
-app.use(bodyParser.json())
+
 
 app.put('/images/:id?', function(req, res) {
     // res.json({        

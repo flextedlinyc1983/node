@@ -43,8 +43,12 @@
 --}}
 <link rel="stylesheet" type="text/css" href="/vender/about.css">
 <script src="/js/require.js" data-main="js/main"></script>
-<script>
 
+<script type="text/html" id="template-contact">
+  <div class='contact'>
+    <strong><%= name %></strong>
+    <span><%= email %></span>
+  </div>
 </script>
 <div data-role="page">                                    
     <div data-role="content">
@@ -56,9 +60,18 @@
             <div data-tab="users">user content</div>
             <div data-tab="groups">groupo content</div>
         </div>
+        <ul id='tabs2'>
+            <li data-tab="users">Users2</li>
+            <li data-tab="groups">Groups2</li>
+        </ul>
+        <div id="tabsContent2">
+            <div data-tab="users">user content2</div>
+            <div data-tab="groups">groupo content2</div>
+        </div>
        testrequire
 
-        
+        <div id="contact">   
+        </div>     
 
         <div id="container">
            <div class="toggle" href="#">More Info (Address)
@@ -77,3 +90,4 @@
     </div>
     {{> commonfooter}}   
 </div>
+

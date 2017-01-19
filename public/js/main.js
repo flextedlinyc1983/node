@@ -69,6 +69,7 @@ require(["math"], function(math) {
 		}
 
 		$("ul#tabs").tabs("#tabsContent");
+		$("ul#tabs2").tabs("#tabsContent2");
 
 	})
 
