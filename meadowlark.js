@@ -138,6 +138,12 @@ var app = express();
 app.use(cookieParser());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+
+
+app.get('/responsivepage', function (req, res){
+    res.sendFile(__dirname + '/public/responsivepage.html');
+});
+
 app.get('/', function (req, res){
     res.sendFile(__dirname + '/index.html');
 });

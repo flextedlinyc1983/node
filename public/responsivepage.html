@@ -9,35 +9,80 @@
   <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">   -->
   <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="/vender/index.css">
+  <link rel="stylesheet" type="text/css" href="/vender/responsivepage.css">
 
 
 <script language="JavaScript">
-  	$(document).ready(function(){
+  $(document).ready(function(){
   		// alert('document ready')
 
-  		updateList = function() {
-		  // var input = $('#file');
-		  // var output = $('#fileList');
-		   var input = document.getElementById('file');
-  		   var output = document.getElementById('fileList');
-
-		  output.innerHTML = '<ul>';
-		  for (var i = 0; i < input.files.length; ++i) {
-		    output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-		  }
-		  output.innerHTML += '</ul>';
-		}
 
 
-  	})
-</script>>
+    var NavItem = Backbone.Model.extend({
+        initialize: function () {            
+        },
+        validate: function (attrs) {        
+        },
+        defaults: function(){
+            return {
+                name:"",                
+            }
+        },        
+    });
+
+    var NavList = Backbone.Collection.extend({
+        model: NavItem,        
+    });
+
+    var NavItemView = Backbone.View.extend({
+        tagName: 'li',        
+        render: function() {            
+            this.$el.html(this.model.get('name'));
+            return this;
+        },
+        initialize: function () {
+            // this.listenTo(this.model, 'change', this.render);
+            // this.listenTo(this.model, 'destroy', this.remove);
+        },        
+    });  
+
+
+    var NavView = Backbone.View.extend({
+      el: $('#nav'),
+      model: NavList,
+
+      render: function() {
+          _.each(this.model.models, this.renderNavItems, this);
+          return this;
+      },
+      renderNavItems: function(item) {
+          $(this.el).find('>ul').append(new NavItemView({model:item}).render().el);
+      }
+    })
+
+
+    var navList = new NavList();
+    for(var i = 1; i < 6 ; i++){
+        navList.add(new NavItem({name:"menu" + i}));  
+    }    
+    var navView = new NavView({model:navList});
+    navView.render();
+
+
+  })
+</script>
+
+
 
 </head>
 <body>
 
+    <nav id="nav">
+        <ul class='cf'>
+        </ul>
+    </nav>
 
-  <form class="formNewsLetter" action="/" enctype="multipart/form-data" method="POST">
+  <!-- <form class="formNewsLetter" action="/" enctype="multipart/form-data" method="POST">
     <div class="formContainer">
         <h2>Sign up for our newsletter to receive news and specials!</h2>
         <input type="hidden" name="_csrf" value="{{ csrf }}">
@@ -66,7 +111,7 @@
         </ul>
         <input type="submit" value="submit">
     </div>
-</form>
+</form> -->
 
     
 </body>

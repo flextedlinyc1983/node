@@ -1,0 +1,45 @@
+.cf {zoom: 1;}
+.cf:before, .cf:after {content:""; display: table;}
+.cf:after {clear:both;}
+
+nav {
+	margin: 0;
+	background-color: #9796e0;
+}
+
+nav ul {    
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li{    
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    line-height: 3.0em;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+
+/*481px ~ 768px */
+@media only screen and (min-width: 481px) {
+
+	nav ul li {    
+	   	float: left;
+	    width: 100px;
+	    margin: 0;
+	    text-align: center;
+	    line-height: 3.0em;
+	    border-left: 1px solid #fff;
+	    border-right: 1px solid #ccc;
+	    border-bottom: none;	    
+	}
+}
+
+
+/* 769px ~ 960px */
+@media only screen and (min-width: 769px) {
+
+}
