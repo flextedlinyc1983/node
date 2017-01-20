@@ -1,4 +1,5 @@
 var express = require('express');
+var cookieParser = require('cookie-parser')
 var router = express.Router();
 var fs = require('fs');
 var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
@@ -134,7 +135,7 @@ var mssql_demo = {query: mssql_demo_query };
 
 
 var app = express();
-
+app.use(cookieParser());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -288,7 +289,7 @@ app.get('/testpubsub',function (req, res) {
 
 app.get('/testrequire',function (req, res) {
 
-
+	res.cookie('cookiename', 'cookievalue', { maxAge: 900000, httpOnly: true });
 
 	// res.render('testrequire',{fortune:"<p>abctest</p>"});
 	// res.type('text/plain');
@@ -353,8 +354,37 @@ var bodyParser = require('body-parser')
 // parse application/json
 app.use(bodyParser.json())
 
+app.delete('/api/test123/:_id',function (req, res) {
+	// console.log('body: ' + req.body);
+	console.log('body: ' + req.body);
+	// res.json({ message: "ok!",body:req.body });
+	var query = {'_id':req.url.split('/')[3]};
+	Photo.findOneAndRemove(query, function(err, doc){
+    	if (err) return res.send(500, { error: err });
+    	return res.json({ message: "ok!",body:req.body });
+	});
+
+	// Photo.find({},function (err,photos) {
+	// 	console.log('photos: ' + photos);
+	// 	console.log('err: ' + err);
+	// 	res.render('testrequire',{fortune:"<p>abctest</p>",photos:photos});
+	// 	res.json({ message: "ok!",photos:photos });
+	// })
+
+	
+	// console.log('sqltest\n');
+	// console.log('sqltest\n');
+	// console.log('regisID: "' + req.params.a + '"');
+});
+
+var api = require('./routes/api');
+app.use('/api',api.auth);
+
+
+
 
 app.put('/api/test123/:_id',function (req, res) {
+	// console.log('body: ' + req.body);
 	console.log('body: ' + req.body);
 	// res.json({ message: "ok!",body:req.body });
 	var query = {'_id':req.body._id};
