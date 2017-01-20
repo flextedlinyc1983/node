@@ -4,8 +4,8 @@ var router = express.Router();
 var fs = require('fs');
 var handlebars = require('express3-handlebars').create({defaultLayout:'main'});
 var sql = require('mssql');
-
-
+var formidable = require('formidable');
+var util = require('util');
 var sql = require('mssql');
 
 var Photo = require('./models/Photo');
@@ -138,6 +138,44 @@ var app = express();
 app.use(cookieParser());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+app.get('/', function (req, res){
+    res.sendFile(__dirname + '/index.html');
+});
+
+
+app.post('/', function (req, res){
+    var form = new formidable.IncomingForm();
+
+    // form.parse(req);
+    form.parse(req, function(err, fields, files) {
+      // res.writeHead(200, {'content-type': 'text/plain'});
+      // res.write('received upload:\n\n');
+      // res.end(util.inspect({fields: fields, files: files}));
+      console.log(util.inspect({fields: fields, files: files}));
+    });
+
+    form.on('fileBegin', function (name, file){
+        file.path = __dirname + '/uploads/' + file.name;
+  //       var new_location = __dirname + '/uploads/' + file.name;
+		// var temp_path = file.path;
+
+  //       fs.copy(temp_path, new_location, function(err) {  
+  //           if (err) {
+  //                console.error(err);
+  //           } else {
+  //                console.log("success!")
+  //           }
+  //       });
+    });
+
+    form.on('file', function (name, file){
+        console.log('Uploaded ' + file.name);
+    });
+
+    res.sendFile(__dirname + '/index.html');
+});
+
+
 
 
 app.use( express.static( __dirname + '/public' ) );
