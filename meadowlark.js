@@ -139,6 +139,76 @@ app.use(cookieParser());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
+var request = require("request");
+var cheerio = require("cheerio");
+
+var bodyParser = require('body-parser')
+// parse application/json
+app.use(bodyParser.json())
+
+
+app.get('/realtimeinfo', function (req, res){
+
+	var zmw = req.query.zmw;
+	var url = "https://www.google.com.tw/";
+
+	// 取得網頁資料
+	request(url, function (error, response, body) {
+  		if (!error) {
+
+    // 用 cheerio 解析 html 資料
+    var $ = cheerio.load(body);
+
+    // 篩選有興趣的資料
+    // var temperature = $("[data-variable='temperature'] .wx-value").html();
+    // var humidity = $("[data-variable='humidity'] .wx-value").html();
+
+    // 輸出
+    // console.log("氣溫：攝氏 " + temperature + " 度");
+    // console.log("濕度：" + humidity + "%");
+			console.log("ok" + error);
+		} else {
+    		console.log("擷取錯誤：" + error);
+  		}
+	});
+
+
+    // res.sendFile(__dirname + '/public/responsivepage.html');
+    res.json({ message: "weather!" });
+});
+
+
+
+app.get('/weather', function (req, res){
+
+	var zmw = req.query.zmw;
+	var url = "http://www.wunderground.com/weather-forecast/" + zmw;
+
+	// 取得網頁資料
+	request(url, function (error, response, body) {
+  		if (!error) {
+
+    // 用 cheerio 解析 html 資料
+    var $ = cheerio.load(body);
+
+    // 篩選有興趣的資料
+    var temperature = $("[data-variable='temperature'] .wx-value").html();
+    var humidity = $("[data-variable='humidity'] .wx-value").html();
+
+    // 輸出
+    console.log("氣溫：攝氏 " + temperature + " 度");
+    console.log("濕度：" + humidity + "%");
+			// console.log("ok" + error);
+		} else {
+    		console.log("擷取錯誤：" + error);
+  		}
+	});
+
+
+    // res.sendFile(__dirname + '/public/responsivepage.html');
+    res.json({ message: "weather!" });
+});
+
 
 app.get('/responsivepage', function (req, res){
     res.sendFile(__dirname + '/public/responsivepage.html');
@@ -394,9 +464,7 @@ app.get('/api/test123',function (req, res) {
 	// console.log('regisID: "' + req.params.a + '"');
 });
 
-var bodyParser = require('body-parser')
-// parse application/json
-app.use(bodyParser.json())
+
 
 app.delete('/api/test123/:_id',function (req, res) {
 	// console.log('body: ' + req.body);
@@ -675,3 +743,5 @@ app.set('port', 3000);
 app.listen(app.get('port'), function () {
 	console.log('Express started on http://localhost:' + app.get('port'));
 });
+
+

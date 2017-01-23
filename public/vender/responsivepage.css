@@ -22,6 +22,35 @@ nav ul li{
     border-bottom: 1px solid #fff;
 }
 
+.page-header {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 100%;
+    min-width: 960px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    /*
+    transform: translate3d(0,0,0);
+    -webkit-overflow-scrolling: touch;
+    
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    */
+    transform: translate3d(0,0,0);
+}
+.page-header.sticky {
+    position: fixed;
+    top: 0;
+}
+.dummy {
+    margin: 0 auto;
+    max-width: 32em;
+    padding: 6em 0;
+    -webkit-overflow-scrolling: touch;
+}
+#placeholder {
+    top: 100px;
+}
 
 /*481px ~ 768px */
 @media only screen and (min-width: 481px) {
