@@ -9,6 +9,9 @@ var util = require('util');
 var sql = require('mssql');
 
 var Photo = require('./models/Photo');
+var credentials = require('./credentials.js');
+
+var nodemailer = require('nodemailer');
  
 var config = {
     user: 'sa',
@@ -135,7 +138,7 @@ var mssql_demo = {query: mssql_demo_query };
 
 
 var app = express();
-app.use(cookieParser());
+app.use(cookieParser(credentials.cookieSecret));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -145,6 +148,7 @@ var cheerio = require("cheerio");
 var bodyParser = require('body-parser')
 // parse application/json
 app.use(bodyParser.json())
+
 
 
 app.get('/realtimeinfo', function (req, res){
@@ -211,6 +215,13 @@ app.get('/weather', function (req, res){
 
 
 app.get('/responsivepage', function (req, res){
+
+	// req.cookies
+	// req.signedCookies
+
+	res.cookie('monster', 'nom nom');
+	res.cookie('signed_monster', 'nom nom', {signed: true});
+
     res.sendFile(__dirname + '/public/responsivepage.html');
 });
 
@@ -252,6 +263,13 @@ app.post('/', function (req, res){
 });
 
 
+app.get('/snapshot', function (req, res){
+    res.sendFile(__dirname + '/public/snapshot.html');
+});
+
+app.get('/demo_1', function (req, res){
+    res.sendFile(__dirname + '/public/demo1.html');
+});
 
 
 app.use( express.static( __dirname + '/public' ) );
@@ -402,6 +420,9 @@ app.get('/testpubsub',function (req, res) {
 })
 
 app.get('/testrequire',function (req, res) {
+
+	res.clearCookie('monster')
+	res.clearCookie('signed_monster')
 
 	res.cookie('cookiename', 'cookievalue', { maxAge: 900000, httpOnly: true });
 

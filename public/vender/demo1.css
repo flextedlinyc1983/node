@@ -1,0 +1,30 @@
+div [name="user_active_col[]"] {
+	float: 	left;
+}
+
+#divClickAll:before, #divClickAll:after {
+	content:""; display: table;
+}
+
+#divClickAll:after {
+	clear:both;
+}
+
+#divClickAll div {
+	float: left;	
+}
+
+
+ul {
+	padding: 0px;
+}
+
+ul li {
+	margin: 15px;
+	margin-left: 0px;
+}
+
+#gallery{
+  height: 300px;
+  overflow: scroll;
+}

@@ -1,0 +1,147 @@
+<html>
+<head>
+<head>
+  <title>index</title>    
+    
+  <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>  
+  
+<!--   <script src="/js/waypointsshortcuts/infinite.js"></script>  
+  <script src="/js/waypointsshortcuts/inview.js"></script>  
+  <script src="/js/waypointsshortcuts/sticky.js"></script>   -->
+  <!-- <script src="/js/jquery.waypoints.js"></script>   -->
+  <!-- <script src="/js/jquery.jscroll.js"></script>   -->
+  <script src="/js/jquery.infinitescroll.js"></script>
+  <script src="/js/loading.js"></script>  
+  <link rel="stylesheet" type="text/css" href="/vender/loading.css">
+
+
+  <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">   -->
+  <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="/vender/demo1.css">
+
+  
+
+
+<script type="text/html" id="InputCheckbox-template">
+    <input name="user_active_col[]" type="checkbox" value=<%= value %>> <%= value %>
+</script>
+
+  <script type="text/javascript" src="/js/demo1.js"></script>
+
+
+<script language="JavaScript">
+  $(document).ready(function(){
+  	// console.log('demo1.html')  ;
+
+    var inputCheckboxList = new InputCheckboxList();
+    for(var i = 1; i < 6 ; i++){
+        inputCheckboxList.add(new InputCheckboxItem({value:i.toString()}));  
+    }    
+    var clickAllView = new ClickAllView({el: $('#divClickAll'),model:inputCheckboxList});
+    clickAllView.render();
+
+    $('#clickAll').clickAll("input[name='user_active_col[]']");
+
+
+
+    addedd = 0;
+    addItemCount = 16,
+    foogetArticleList();
+    $('#load-more').on('click', function (e) {
+      e.preventDefault();
+      foogetArticleList();
+    });
+
+
+
+    // var waypoint = new Waypoint({
+    //   element: $('#gallery'),
+    //   handler: function(direction) {
+    //     // console.log('Scrolled to waypoint!')
+    //     // console.log('direction: ' + direction)
+    //     if(direction == "down"){
+    //       // alert('Scrolled to waypoint!')
+    //       foogetArticleList();
+    //     }
+    //   }
+    // })
+
+    // $('#gallery').jscroll({  
+    //     autoTrigger: true,
+    //     callback:call(),
+    //     loadingHtml: '<img src="loading.gif" alt="Loading" /> Loading...',
+    //     padding: 20,
+    //     contentSelector: 'li'
+
+    // });
+
+    function call()
+    {
+        alert("hi");
+    } 
+
+    // var win = $(window);
+
+    // // Each time the user scrolls
+    // win.scroll(function() {
+    //   // End of the document reached?
+    //   if ($(document).height() - win.height() == win.scrollTop()) {
+    //     // $('#loading').show();
+
+    //     // $.ajax({
+    //     //   url: 'get-post.php',
+    //     //   dataType: 'html',
+    //     //   success: function(html) {
+    //     //     $('#posts').append(html);
+    //     //     $('#loading').hide();
+    //     //   }
+    //     // });
+
+    //     call();
+    //   }
+    // });
+container = $('#gallery');
+var scrolledToBottom = function(){
+  return (container.get(0).scrollHeight == (container.scrollTop() + container.height()));
+}
+
+container.scroll(function(){
+  if (scrolledToBottom()) {
+    foogetArticleList();
+    container.loading();
+  }
+});
+
+  });
+</script>
+
+
+
+</head>
+<body>
+    
+<div id='divClickAll'>    
+<!-- <input name="user_active_col[]" type="checkbox" value="1"> 1
+<input name="user_active_col[]" type="checkbox" value="2"> 2
+<input name="user_active_col[]" type="checkbox" value="3"> 3
+<input name="user_active_col[]" type="checkbox" value="4"> 4
+<input name="user_active_col[]" type="checkbox" value="5"> 5 -->
+<input name="clickAll" id="clickAll" type="checkbox"> 全選
+</div>
+
+
+<div class="page-main" role="main">
+    <ul class="gallery" id="gallery"></ul>
+    <!-- <button class="load-more" id="load-more">Load more</button> -->
+</div>
+
+<p id="loading">
+  <img src="images/loading.gif" alt="Loading…" />
+</p>
+
+
+</body>
+</html>
