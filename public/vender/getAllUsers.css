@@ -49,6 +49,12 @@
 	border-bottom: 1px solid rgb(221, 221, 221);
 }
 
+.footerArea {
+    text-transform: none;
+    -webkit-backface-visibility: hidden;
+    // -webkit-transform:translate3d(0,0,0);
+}
+
 .footerArea li a {
 	height: 52px;
 
@@ -59,9 +65,91 @@
     padding: 0px;
     font: 12px/80px Helvetica;
     border-width: 0px;
+    // -webkit-transform-style: preserve-3d;
+    // -webkit-transform:translate3d(0,0,0);
     
+    // -webkit-transform-style: preserve-3d;
+    // -webkit-backface-visibility: hidden;
 }
 
 .footerArea li a.ui-btn:hover {
 	background-color: rgb(246, 246, 246);
+}
+
+
+#footer li a.footerHref-active {
+	background-color: #f6f6f6;
+    text-shadow: none;
+    background-image: url(../images/footer_icon04.png);
+    color: cornflowerblue;
+}
+
+.footerContent {
+    display: none;
+}
+
+.footerContent-active {
+	display: block;
+}
+
+
+.headerContent_2 {
+    height: 44px;
+    border-bottom: 1px solid #cac8c8;
+    overflow: hidden;   
+    z-index: 4;
+    position: fixed;    
+    width: 100%;
+    top: -1px;
+    padding-top: 0px;
+}    
+
+.headerContent_2 .classification {
+	float: left;
+    background: transparent url(/images/classificationImg.png) no-repeat center center;
+    background-size: 20px auto;
+    width: 50px;
+    height: 44px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.headerContent_2 tr td h1 {
+    background-color: #ecebec;
+    margin: 0px;
+    padding: 0px;
+    font: bold 26px/44px Century Gothic;
+    color: #FFFFFF;
+}
+
+.headerContent_2 tr td {
+	background-color: #ecebec;
+}
+
+.headerContent_2 table .topSearch a {
+    background-image: url(/images/header_search.png);
+    background-repeat: no-repeat;
+    background-position: center 1px;
+    background-size: auto 24px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font: 13px/65px Helvetica;
+    height: 44px;
+    width: 40px;
+    text-align: center;
+}
+
+
+.headerContent_2  table .topBrowseFoot a {
+    // background: transparent url(/images/header_search.png) no-repeat center 5px;
+    background-size: 20px auto;
+    width: 40px;
+    height: 44px;
+    font: 13px/65px Helvetica;
+    color: #FFFFFF;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
 }

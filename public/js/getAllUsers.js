@@ -323,6 +323,77 @@ $(document).ready(function () {
 	$('a[buttonname=Second]').on('vclick',function () {
 		conSecond.active();		
 	})
+
+	/////////////////////////////////////////////////////////////////////////////////
+
+	var scrollTopManager = {
+		storeFooterContentScrollTop: function (index) {				
+				this.ScrollTopNums[index] = $('body').scrollTop();
+		},
+		setFooterContentScrollTop: function (index) {
+				$('body').scrollTop(this.ScrollTopNums[index] || 0);
+		},
+
+		ScrollTopNums: {},
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////
+
+	var conFooter_1 = {
+		activate: function () {
+			$('[buttonname=footerHref_1]').addClass("footerHref-active");
+			$('#footerContent_1').addClass("footerContent-active");
+
+			scrollTopManager.setFooterContentScrollTop("footerContent_1");
+		},
+		deactivate: function () {
+			scrollTopManager.storeFooterContentScrollTop("footerContent_1");
+			
+			$('[buttonname=footerHref_1]').removeClass("footerHref-active");
+			$('#footerContent_1').removeClass("footerContent-active");	
+		
+
+
+			// $('body').scrollTop(0);			
+			// setTimeout(function(){
+			// 	$('[buttonname=footerHref_1]').removeClass("footerHref-active");
+			// 	$('#footerContent_1').removeClass("footerContent-active");	
+			// }, 150);   
+	
+		},
+	};
+
+	var conFooter_2 = {
+		activate: function () {
+			$('[buttonname=footerHref_2]').addClass("footerHref-active");
+			$('#footerContent_2').addClass("footerContent-active");
+
+			scrollTopManager.setFooterContentScrollTop("footerContent_2");
+		},
+		deactivate: function () {
+			scrollTopManager.storeFooterContentScrollTop("footerContent_2");
+
+			$('[buttonname=footerHref_2]').removeClass("footerHref-active");
+			$('#footerContent_2').removeClass("footerContent-active");
+
+			
+		},
+	};
+
+	var smFooter = new StateMachine();
+	smFooter.add(conFooter_1);
+	smFooter.add(conFooter_2);
+
+	conFooter_1.active();
+
+	$('a[buttonname=footerHref_1]').on('vclick',function () {
+		conFooter_1.active();		
+	})
+	$('a[buttonname=footerHref_2]').on('vclick',function () {
+		conFooter_2.active();		
+	})
+
+	
 });
 
 

@@ -1,17 +1,15 @@
 <link rel="stylesheet" type="text/css" href="/vender/getAllUsers.css">
 
 
-<div class="controlgroup-fixed">
-  <div data-role="controlgroup" data-type="horizontal" >
+
+<div id="footerContent_1" class="footerContent">
+
+    <div class="controlgroup-fixed">
+    <div data-role="controlgroup" data-type="horizontal" >
     <a data-role="button" data-inline="true" buttonName="Main" class='controlgroupBtn'>Main</a>
     <a data-role="button" data-inline="true" buttonName="Second" class='controlgroupBtn'>Second</a>  
-  </div>
-</div>
-
-
-
-
-
+    </div>
+    </div>
   
     <div id="mainContent" class="tabContent">
       <ul data-role="listview">
@@ -32,21 +30,39 @@
     <div id="secondContent" class="tabContent">
     second
     </div>
+
+</div>
   
 
+<div id="footerContent_2" class="footerContent" >
+
+
+  <div class="headerContent_2">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>    
+          <td width="50"><a class="classification" href=""></a></td>
+          <td id="headMomoLogoTh"><h1 class="logo" alt="momo" title="momo">header</h1></td>
+          <td width="40" class="topSearch"><a>搜尋</a></td>
+          <td width="40" class="topBrowseFoot"><a id="headHistoryLstA" >足跡</a></td>
+      
+      
+    </tr>
+  </tbody>
+      </table>
+   </div>
+    footerContent_2
+</div>
 
 
 
-
-
-
-<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+<div data-role="footer" id="footer" data-position="fixed" data-tap-toggle="false" >
   <div data-role="navbar" class="footerArea">
     <ul class="indexPage ui-grid-c">              
-      <li class=""><a class="">設定1</a></li> 
-      <li class=""><a class="">設定2</a></li> 
-      <li class=""><a class="">設定3</a></li> 
-      <li class=""><a class="">設定4</a></li> 
+      <li class=""><a class="" buttonName="footerHref_1">設定1</a></li> 
+      <li class=""><a class="" buttonName="footerHref_2">設定2</a></li> 
+      <li class=""><a class="" buttonName="footerHref_3">設定3</a></li> 
+      <li class=""><a class="" buttonName="footerHref_4">設定4</a></li> 
     </ul>
   </div>
 </div>
@@ -62,7 +78,10 @@
 $(document).ready(function () {
   console.log('getAllUsers')
 
-  
+    
+    //$(".ui-page").css({'-webkit-backface-visibility':'hidden'});
+    //$(".ui-page").css({'-webkit-transform':'translate3d(0,0,0)'});
+    
 })
 </script>
 <script src="/js/getAllUsers.js"></script>  
