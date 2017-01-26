@@ -1,0 +1,67 @@
+
+[data-role=controlgroup] {
+  text-align: center;
+  margin-bottom: 30px;  
+}
+
+.controlgroup-fixed {
+	top: -1px;
+    padding-top: 1px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+}
+
+.ui-controlgroup-controls {
+	// width: 80%;
+	width: 270px;
+}
+
+.ui-controlgroup-controls a.controlgroupBtn, .ui-controlgroup-controls a.controlgroupBtn:hover {
+	// width: 35%;
+	width: 100px;
+	border-color: #64a9f5;
+	color: #64a9f5;
+	font-family: initial;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.ui-page-theme-a .ui-controlgroup-controls a.controlgroupBtn-active {
+	background-color: #64a9f5;
+	border-color: #64a9f5;
+	color: #ffffff;
+}
+
+.tabContent {
+    display: none;
+}
+
+.controlgroupContent-active {
+    display: block;
+}
+
+#mainContent ul li a {
+	background-color: white;	
+	margin-bottom: 1.5em;
+	border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.footerArea li a {
+	height: 52px;
+
+	background-image: url(/images/footer_icon04_on.png);
+    background-repeat: no-repeat;
+    background-position: center 2px;
+    background-size: auto 30px;
+    padding: 0px;
+    font: 12px/80px Helvetica;
+    border-width: 0px;
+    
+}
+
+.footerArea li a.ui-btn:hover {
+	background-color: rgb(246, 246, 246);
+}

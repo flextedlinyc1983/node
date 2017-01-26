@@ -1,0 +1,68 @@
+<link rel="stylesheet" type="text/css" href="/vender/getAllUsers.css">
+
+
+<div class="controlgroup-fixed">
+  <div data-role="controlgroup" data-type="horizontal" >
+    <a data-role="button" data-inline="true" buttonName="Main" class='controlgroupBtn'>Main</a>
+    <a data-role="button" data-inline="true" buttonName="Second" class='controlgroupBtn'>Second</a>  
+  </div>
+</div>
+
+
+
+
+
+  
+    <div id="mainContent" class="tabContent">
+      <ul data-role="listview">
+      {{#each users}}
+          <li>
+            <a href="{{hrefColumn}}">
+              <img src="{{imgColumn}}">
+              <div class='user'>
+                  <h3>{{name}}</h3>
+                  <p>{{addColumn}}</p>
+              </div>
+            </a>      
+          </li>
+      {{/each}}
+      </ul>
+    </div>
+
+    <div id="secondContent" class="tabContent">
+    second
+    </div>
+  
+
+
+
+
+
+
+
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <div data-role="navbar" class="footerArea">
+    <ul class="indexPage ui-grid-c">              
+      <li class=""><a class="">設定1</a></li> 
+      <li class=""><a class="">設定2</a></li> 
+      <li class=""><a class="">設定3</a></li> 
+      <li class=""><a class="">設定4</a></li> 
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function () {
+  console.log('getAllUsers')
+
+  
+})
+</script>
+<script src="/js/getAllUsers.js"></script>  

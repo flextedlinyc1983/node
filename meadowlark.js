@@ -9,6 +9,7 @@ var util = require('util');
 var sql = require('mssql');
 
 var Photo = require('./models/Photo');
+var User = require('./models/User');
 var credentials = require('./credentials.js');
 
 var nodemailer = require('nodemailer');
@@ -149,6 +150,21 @@ var bodyParser = require('body-parser')
 // parse application/json
 app.use(bodyParser.json())
 
+app.get('/getAllUsers',function (req, res) {
+	User.find({},function (err,users) {		
+		// res.json({ message: {users:users} });
+		res.render('getAllUsers',{users: users});
+	})
+})
+app.get('/users',function (req, res) {
+
+	User.create({hrefColumn:'https://www.google.com',imgColumn:'/images/chrome.png',name:"ted " + (Math.floor(Math.random() * 100000000000)),address:"ted address",addColumn:"empty",authColumn:((Math.floor(Math.random() * 10)) % 2)  ? true: false},function (err) {
+		console.log('create err: ' + err);
+	})
+
+
+	res.json({ message: "user ok!" });
+})
 
 
 app.get('/realtimeinfo', function (req, res){

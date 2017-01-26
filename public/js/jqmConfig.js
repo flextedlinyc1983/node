@@ -2,7 +2,7 @@ $(document).on('mobileinit', function() {
 	// alert('jqmConfig');
 
 
-    // $.mobile.activeBtnClass = 'unused';
+    $.mobile.activeBtnClass = 'unused';
 //     $.mobile.ajaxEnabled = false;
 //     $.mobile.linkBindingEnabled = false;
 //     $.mobile.hashListeningEnabled = false;
@@ -57,7 +57,17 @@ $(document).on('mobileinit', function() {
 // // $(":mobile-pagecontainer").bind('pagebeforechange', function (event, data) {
 // // 	var url = $.mobile.path.parseUrl(data.toPage).hash;
 // // });
-	
 
+	$(document).on('pageshow', ":jqmData(role='page')", function (event, ui) {
+        resetPageContent();
+    });
+	
+	$(window).on( "throttledresize", function ( e ) {
+	   	resetPageContent();
+	});
+
+	$(window).on('resize', function (event) {
+		resetPageContent();
+	});		
 });
 
