@@ -51,8 +51,70 @@
   </tbody>
       </table>
    </div>
-    footerContent_2
+        <div class="landing__content">
+            <div class="landing__wrap clearfix">
+                <div class="landing__inner">
+                    <h1>最新消息</h1>
+                    <p>培養時尚的敏銳度，<br>就從這裡開始！</p>
+                </div>
+                <div class="landing__inner">
+                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page'">
+                        <span>活動快訊</span>
+                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                    </div>
+                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page&amp;mode=event_news'">
+                        <span>新聞消息</span>
+                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                    </div>
+                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page'">
+                        <span>活動快訊</span>
+                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                    </div>
+                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page&amp;mode=event_news'">
+                        <span>新聞消息</span>
+                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                    </div>
+                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page'">
+                        <span>活動快訊</span>
+                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                    </div>
+                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page&amp;mode=event_news'">
+                        <span>新聞消息</span>
+                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
+
+<div id="expand">
+<dl>
+    <dt>Q: <a href="#">What is the question?</a></dt>
+    <dd>
+      <ul data-role="listview">
+        <li><a href="acura.html">Acura</a></li>
+        <li><a href="audi.html">Audi</a></li>
+        <li><a href="bmw.html">BMW</a></li>
+      </ul>
+    </dd>
+</dl>
+<dl>
+    <dt>Q: <a href="#">What is the question?</a></dt>
+    <dd>
+      <ul data-role="listview">
+        <li><a href="acura.html">Acura</a></li>
+        <li><a href="audi.html">Audi</a></li>
+        <li><a href="bmw.html">BMW</a></li>
+      </ul>
+    </dd>
+</dl>
+<dl>
+    <dt>Q: <a href="#">What is the question?</a></dt>
+    <dd>A: The answer to the question!</dd>
+</dl>
+</div>
+
+
 
 
 
@@ -82,6 +144,12 @@ $(document).ready(function () {
     //$(".ui-page").css({'-webkit-backface-visibility':'hidden'});
     //$(".ui-page").css({'-webkit-transform':'translate3d(0,0,0)'});
     
+
+    $("#expand dt a").on('vclick', function () {
+       $(this).parent().siblings("dd").slideToggle({duration:250}); 
+    });
+
+
 })
 </script>
 <script src="/js/getAllUsers.js"></script>  
