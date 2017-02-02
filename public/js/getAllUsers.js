@@ -404,3 +404,22 @@ function resetPageContent(){
  	$('[data-role=page]').css('min-height', contentMinHeight + 'px');
  	// alert($(window).height())
 }
+
+function mRefreshTime(btId, _endD){   
+  var _endS = new Date(_endD).getTime();
+  var _nowD = new Date();
+  var _nowS = _nowD.getTime();
+  
+  var _secs=parseInt((_endS-_nowS)/1000,10);
+  var _hh=parseInt(_secs/3600,10);
+  var _mm=parseInt(Math.floor((_secs%3600)/60),10);
+  var _ss=parseInt(Math.floor(_secs%60),10);
+  if(_hh.toString().length<2)_hh='0'+_hh.toString();
+  if(_mm.toString().length<2)_mm='0'+_mm.toString();
+  if(_ss.toString().length<2)_ss='0'+_ss.toString();
+  $("#"+btId).find('.hh').html(_hh);
+  $("#"+btId).find('.mm').html(_mm);
+  $("#"+btId).find('.ss').html(_ss);
+      
+  setTimeout("mRefreshTime('"+btId+"','"+_endD.toString()+"')",500);
+}

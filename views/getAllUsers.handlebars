@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/vender/getAllUsers.css">
 
+<script src="/js/slideout.min.js"></script>
 
 
 <div id="footerContent_1" class="footerContent">
@@ -41,7 +42,7 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>    
-          <td width="50"><a class="classification" href=""></a></td>
+          <td width="50"><a class="classification js-slideout-toggle" href=""></a></td>
           <td id="headMomoLogoTh"><h1 class="logo" alt="momo" title="momo">header</h1></td>
           <td width="40" class="topSearch"><a>搜尋</a></td>
           <td width="40" class="topBrowseFoot"><a id="headHistoryLstA" >足跡</a></td>
@@ -58,34 +59,39 @@
                     <p>培養時尚的敏銳度，<br>就從這裡開始！</p>
                 </div>
                 <div class="landing__inner">
-                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page'">
+
+                    <div class="landing__btn" id="landing_btn_1">
                         <span>活動快訊</span>
                         <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
+                        
                     </div>
+                    <dd class="expand_1">
+                      <ul data-role="listview">
+                        <li><a href="acura.html">Acura</a></li>
+                        <li><a href="audi.html">Audi</a></li>
+                        <li><a href="bmw.html">BMW</a></li>
+                      </ul>
+                    </dd>
+                    <!-- 
                     <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page&amp;mode=event_news'">
+                    -->
+                    <div class="landing__btn" id="landing_btn_2">
                         <span>新聞消息</span>
                         <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
                     </div>
-                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page'">
-                        <span>活動快訊</span>
-                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
-                    </div>
-                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page&amp;mode=event_news'">
-                        <span>新聞消息</span>
-                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
-                    </div>
-                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page'">
-                        <span>活動快訊</span>
-                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
-                    </div>
-                    <div class="landing__btn" onclick="window.location.href='/zh/news/lists?from=landing_page&amp;mode=event_news'">
-                        <span>新聞消息</span>
-                        <div class="btn-arrow btn-arrow--right lannding__btn-arrow"></div>
-                    </div>
+                    <dd class="expand_2">
+                      <ul data-role="listview">
+                        <li><a href="acura.html">Acura</a></li>
+                        <li><a href="audi.html">Audi</a></li>
+                        <li><a href="bmw.html">BMW</a></li>
+                      </ul>
+                    </dd>
+                   
                 </div>
             </div>
         </div>
 </div>
+
 
 <div id="expand">
 <dl>
@@ -115,7 +121,23 @@
 </div>
 
 
-
+<span id="limitedTime" style="background-color: blanchedalmond;">2017/02/02 15:59:00</span>
+<div class="titleArea">
+  <dl class="limitedArea" id="appLimitBuy"> 
+    <dt>
+     倒數 
+    </dt> 
+    <dd> 
+      <b class="hh">01</b>: 
+    </dd> 
+    <dd> 
+      <b class="mm">51</b>: 
+    </dd> 
+    <dd> 
+      <b class="ss">45</b> 
+    </dd> 
+  </dl> 
+</div>
 
 
 <div data-role="footer" id="footer" data-position="fixed" data-tap-toggle="false" >
@@ -150,6 +172,40 @@ $(document).ready(function () {
     });
 
 
+
+    var _endD = new Date($("#limitedTime").text());
+    var btId = "appLimitBuy";
+    mRefreshTime(btId, _endD);
+
+    $('#landing_btn_1').on('vclick', function () {
+       if($(this).find('div').hasClass('btn-arrow-expand')){
+          $(this).find('div').removeClass('btn-arrow-expand');          
+       } else {
+          $(this).find('div').addClass('btn-arrow-expand');
+       }
+       $(this).siblings("dd.expand_1").slideToggle({duration:250}); 
+    })
+    $('#landing_btn_2').on('vclick', function () {
+       if($(this).find('div').hasClass('btn-arrow-expand')){
+          $(this).find('div').removeClass('btn-arrow-expand');          
+       } else {
+          $(this).find('div').addClass('btn-arrow-expand');
+       }
+       $(this).siblings("dd.expand_2").slideToggle({duration:250}); 
+    })
+
+
+
+    
+
+
+    $('.js-slideout-toggle').on('vclick', function() {
+    //    slideout.toggle();
+    alert('test')
+    });
+
 })
 </script>
 <script src="/js/getAllUsers.js"></script>  
+
+

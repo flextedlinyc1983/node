@@ -321,3 +321,7 @@ $(document).ready(function () {
 		conSecond.active();		
 	})
 });
+
+function resetPageContent(){
+
+}
