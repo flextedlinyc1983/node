@@ -1,0 +1,894 @@
+<!--
+<link rel="stylesheet" type="text/css" href="/vender/getAllUsers.css">
+-->
+<link rel="stylesheet" type="text/css" href="/vender/test_bootstrap.css">
+<script src="/js/test_bootstrap.js"></script>
+<script src="/js/jquery.sticky.js"></script>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+-->
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<div id="header" style="background: url(&quot;/images/3.jpg&quot;) 50% 6px;">
+ <img src="/images/t3.png" id="topic" style="
+    padding-top: 60px;
+    width: 100% !important;
+">
+  <!--NAV -->
+    <div id="nav_wrapper-sticky-wrapper" class="sticky-wrapper" style="height: 60px;"><div class="navbar navbar-default navbar-fixed-top" id="nav_wrapper" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+               <!--秋賞限定MENU區塊-->
+                 <li class="menu-item dropdown oran"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="title">秋賞限定 <b class="caret"></b></a>
+                  
+                  <ul class="dropdown-menu">
+                   
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國外團體</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="index.asp">日本</a></li>
+                         <li class="menu-item "><a href="a_kr.asp">韓國</a></li>
+                         <li class="menu-item "><a href="a_china.asp">大陸</a></li>
+                         <!--li class="menu-item "><a href="a_hk.asp">港澳</a></li-->
+                         <!--<li class="menu-item "><a href="a_guam.asp">關島帛琉</a></li>-->
+                         <!--<!li class="menu-item "><a href="a_eur.asp">歐洲</a></li>-->
+                         <!--<!li class="menu-item "><a href="a_af.asp">亞非</a></li>-->
+                         <li class="menu-item "><a href="a_usa.asp">美加</a></li>
+                         <!--<li class="menu-item "><a href="a_aus.asp">紐澳</a></li>--> 
+                         <!--<li class="menu-item "><a href="a_latin.asp">中南美洲</a></li>-->  
+                         <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More</a></li>-->
+                      </ul>
+                    </li>
+                    
+                     
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">主題旅遊</a>
+                       <ul class="dropdown-menu">
+                        <!--<li class="menu-item "><a href="a_cruise.asp">郵輪</a></li>
+                         <li class="menu-item "><a href="a_rail.asp">鐵道</a></li>
+                         <li class="menu-item "><a href="a_festival.asp">節慶</a></li>
+                         <li class="menu-item "><a href="a_gourmet.asp">美食</a></li>-->
+                         <li class="menu-item "><a href="a_art.asp">人文藝術</a></li>
+                         <!--<li class="menu-item "><a href="a_eco.asp">生態</a></li>
+                         <li class="menu-item "><a href="a_island.asp">頂級島嶼</a></li>
+                         <li class="menu-item "><a href="a_wedding.asp">海外婚禮</a></li> 
+                         <li class="menu-item "><a href="a_club.asp">Club Med</a></li> -->        
+                         <li class="menu-item "><a href="a_gourmet.asp">日本嚴選</a></li> 
+                        
+                      </ul>
+                    </li>
+                    
+                        
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">雄獅自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_fit_china.asp">大陸</a></li>
+                         <li class="menu-item "><a href="a_fit_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="a_fit_kr.asp">韓國</a></li>
+                        
+                      </ul>
+                    </li>
+                    
+                          
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">航空自由行</a>
+                      <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_air_china.asp">大陸</a></li>
+                        <li class="menu-item "><a href="a_air_na.asp">日本</a></li>
+                        <li class="menu-item "><a href="a_air_sa.asp">韓國</a></li> 
+                        
+                      </ul>
+                  </li>
+                    
+                           
+                     <li class="menu-item dropdown dropdown-submenu"><a href="a_htl.asp">訂房</a>
+                       <!--ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_htl.asp#tab1">大陸</a></li>
+                         <li class="menu-item "><a href="a_htl.asp#tab2">日本</a></li>
+                         <li class="menu-item "><a href="a_htl.asp#tab3">韓國</a></li>
+                       <!--  <li class="menu-item "><a href="a_htl.asp#tab4">加拿大</a></li>
+                         <li class="menu-item "><a href="a_htl.asp#tab5">台灣</a></li>
+                         </ul-->
+                    </li>
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="a_airtkt.asp">國際機票</a>
+                       <!--ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_airtkt.asp#tab1">大陸港澳</a></li>
+                         <li class="menu-item "><a href="a_airtkt.asp#tab2">東北亞</a></li>
+                         <li class="menu-item "><a href="a_airtkt.asp#tab3">東南亞</a></li>
+                         <li class="menu-item "><a href="a_airtkt.asp#tab4">歐洲美加</a></li>
+                         </ul-->
+                    </li>
+                    
+                    
+                           <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">票券</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_tkt.asp">國際暢銷票券</a></li>
+                        </ul>
+                    </li>
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國內旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_tw_tp.asp">團體旅遊</a></li>
+             <li class="menu-item "><a href="a_tw_htl.asp">國內訂房</a></li>
+             <li class="menu-item "><a href="a_tw_fit.asp">國內自由行</a></li>
+          <li class="menu-item "><a href="a_tw_t.asp">台灣主題旅遊</a></li>
+
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">台中出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_tc_china.asp">大陸直航</a></li>
+             <!--li class="menu-item "><a href="a_tc_hk.asp">港澳</a></li-->
+             <!--<li class="menu-item "><a href="a_tc_na.asp">東北亞</a></li>-->
+             <!--li class="menu-item "><a href="a_tc_tw.asp">台灣</a></li-->
+
+                        </ul>
+                    </li>
+                    
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">高雄出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_ks_na.asp">日韓</a></li>
+              <li class="menu-item "><a href="a_ks_china.asp">大陸</a></li>
+          <!--   <li class="menu-item "><a href="a_ks_usa.asp">美加</a></li>-->
+             <li class="menu-item "><a href="a_ks_tw.asp">國內旅遊</a></li>           <li class="menu-item "><a href="a_ks_fit.asp">團體自由行</a></li>
+
+                        </ul>
+                    </li>
+                    
+                    
+                   </ul>
+                  </li> 
+               <!--樂園仙境MENU區塊-->
+                <li class="menu-item dropdown green"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="title">樂園仙境<b class="caret"></b></a>
+                
+                  <ul class="dropdown-menu">
+                   
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國外團體</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="p_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="p_kr.asp">韓國</a></li>
+                         <li class="menu-item "><a href="p_sa.asp">東南亞</a></li>           
+                          <li class="menu-item "><a href="p_china.asp">大陸</a></li>
+                      <!--   <li class="menu-item "><a href="p_hk.asp">港澳</a></li>-->
+                         <!--<li class="menu-item "><a href="p_guam.asp">關島帛琉</a></li>-->           
+                         <!--<li class="menu-item "><a href="p_eur.asp">歐洲</a></li>-->
+                         <!--<li class="menu-item "><a href="p_af.asp">亞非</a></li>-->
+                         <li class="menu-item "><a href="p_usa.asp">美加</a></li>
+                         <!--<li class="menu-item "><a href="p_aus.asp">紐澳</a></li>--> 
+                         <!-- <li class="menu-item "><a href="p_latin.asp">中南美洲</a></li> --> 
+                         <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More</a></li>-->
+                      </ul>
+                    </li>
+                    
+                     
+                    <!-- <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">主題旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="a_cruise.asp">郵輪</a></li>
+                         <li class="menu-item "><a href="a_rail.asp">鐵道</a></li>
+                         <li class="menu-item "><a href="a_festival.asp">節慶</a></li>
+                         <li class="menu-item "><a href="a_gourmet.asp">美食</a></li>
+                         <li class="menu-item "><a href="a_art.asp">人文藝術</a></li>
+                         <li class="menu-item "><a href="a_eco.asp">生態</a></li>
+                         <li class="menu-item "><a href="a_island.asp">頂級島嶼</a></li>
+                         <li class="menu-item "><a href="a_wedding.asp">海外婚禮</a></li> 
+                         <li class="menu-item "><a href="a_club.asp">Club Med</a></li>        <li class="menu-item "><a href="a_sport.asp">運動</a></li> 
+                        
+                      </ul>
+                    </li>-->
+                    
+                        
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">雄獅自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="p_fit_hk.asp">香港</a></li>
+                         <li class="menu-item "><a href="p_fit_mc.asp">澳門</a></li>
+                        <li class="menu-item "><a href="p_fit_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="p_fit_kr.asp">韓國</a></li>
+                         <li class="menu-item "><a href="p_fit_my.asp">馬新</a></li>
+                        
+                      </ul>
+                    </li>
+                    
+                          
+                   <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">航空自由行</a>
+                       <ul class="dropdown-menu">
+                        <!--<li class="menu-item "><a href="p_air_hk.asp">澳門</a></li>-->
+                         <li class="menu-item "><a href="p_air_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="p_air_sg.asp">新加坡</a></li> 
+                        
+                      </ul>
+                    </li>
+                    
+                           
+                    <li class="menu-item dropdown dropdown-submenu" id="#p_htl_tab"><a href="p_htl.asp">訂房</a>
+                       <!--ul class="dropdown-menu">
+                        <li class="menu-item "><a href="p_htl.asp#tab1">香港</a></li>
+                        <li class="menu-item "><a href="p_htl.asp#tab2">日本</a></li>
+                         <li class="menu-item "><a href="p_htl.asp#tab3">韓國</a></li>
+                         <li class="menu-item "><a href="p_htl.asp#tab4">新加坡</a></li>
+                         <li class="menu-item "><a href="p_htl.asp#tab5">美國</a></li>
+                         <li class="menu-item "><a href="http://www.liontravel.com/comm/2htl/hotsale/autumntravel/p_tw_htl.asp">台灣</a></li>
+                         </ul-->
+                    </li>
+                  
+                    
+                           <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">票券</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="p_tkt_oversea.asp">國際暢銷票券</a></li> <li class="menu-item "><a href="p_tkt_tw.asp">台灣暢銷票券</a></li>
+                       
+                        </ul>
+                    </li>
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國內旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="p_tw_tp.asp">團體旅遊</a></li>
+             <li class="menu-item "><a href="p_tw_htl.asp">國內訂房</a></li>
+             <li class="menu-item "><a href="p_tw_fit.asp">國內自由行</a></li>
+             <!-- <li class="menu-item "><a href="p_tw_t.asp">台灣主題旅遊</a></li>-->
+
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">台中出發</a>
+                       <ul class="dropdown-menu">
+                        <!--li class="menu-item "><a href="p_tc_china.asp">大陸直航</a></li-->
+             <li class="menu-item "><a href="p_tc_hk.asp">港澳</a></li>
+             <li class="menu-item "><a href="p_tc_na.asp">東北亞</a></li>
+             <!--li class="menu-item "><a href="p_tc_tw.asp">台灣</a></li-->
+
+                        </ul>
+                    </li>
+                    
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">高雄出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="p_ks_china.asp">大陸</a></li>
+             <li class="menu-item "><a href="p_ks_hk.asp">港澳</a></li>
+            <!-- <li class="menu-item "><a href="p_ks_jp.asp">日韓</a></li>-->
+             <li class="menu-item "><a href="p_ks_sa.asp">東南亞</a></li>        
+                         <li class="menu-item "><a href="p_ks_w.asp">美國</a></li>
+             <li class="menu-item "><a href="p_ks_tw.asp">國內旅遊</a></li>
+                         <li class="menu-item "><a href="p_ks_fit.asp">團體自由行</a></li>
+
+
+
+                        </ul>
+                    </li>
+                    
+                    
+                             </ul>
+                             </li>        
+               <!--食尚饗宴MENU區塊-->
+                 <li class="menu-item dropdown pink"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="title">食尚饗宴<b class="caret"></b></a>
+                  
+                  <ul class="dropdown-menu">
+                   
+                   <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國外團體</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="g_kr.asp">韓國</a></li>
+                         <li class="menu-item "><a href="g_sa.asp">東南亞</a></li>            
+                         <li class="menu-item "><a href="g_china.asp">大陸</a></li>
+                         <li class="menu-item "><a href="g_hk.asp">港澳</a></li>
+                         <!--<li class="menu-item "><a href="g_guam.asp">關島帛琉</a></li>-->           
+                         <li class="menu-item "><a href="g_eur.asp">歐洲</a></li>
+                         <!--<li class="menu-item "><a href="g_af.asp">亞非</a></li>-->
+                         <!--<li class="menu-item "><a href="g_usa.asp">美加</a></li>-->
+                         <!--<li class="menu-item "><a href="g_aus.asp">紐澳</a></li>--> 
+                         <!--<li class="menu-item "><a href="g_latin.asp">中南美洲</a></li>--> 
+                         <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More</a></li>-->
+                      </ul>
+                    </li>
+                    
+                   <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">主題旅遊</a>
+                       <ul class="dropdown-menu">
+                        <!--<li class="menu-item "><a href="a_cruise.asp">郵輪</a></li>
+                         <li class="menu-item "><a href="a_rail.asp">鐵道</a></li>
+                         <li class="menu-item "><a href="a_festival.asp">節慶</a></li>-->
+                         <li class="menu-item "><a href="g_gourmet.asp">美食</a></li>
+                         <!--<li class="menu-item "><a href="a_art.asp">人文藝術</a></li>
+                         <li class="menu-item "><a href="a_eco.asp">生態</a></li>
+                         <li class="menu-item "><a href="a_island.asp">頂級島嶼</a></li>
+                         <li class="menu-item "><a href="a_wedding.asp">海外婚禮</a></li> 
+                         <li class="menu-item "><a href="a_sport.asp">運動</a></li> -->         
+                         <li class="menu-item "><a href="g_club.asp">Club Med</a></li>
+                        
+                      </ul>
+                    </li>
+                    
+                        
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">雄獅自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_fit_hk.asp">香港</a></li>
+                         <!--li class="menu-item "><a href="g_fit_jp.asp">日本</a></li-->
+                         <li class="menu-item "><a href="g_fit_thai.asp">泰國</a></li>
+                        <li class="menu-item "><a href="g_fit_my.asp">馬新</a></li>
+                        <!--li class="menu-item "><a href="g_fit_bali.asp">峇里島</a></li-->
+                      </ul>
+                    </li>
+                    
+                          
+             <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">航空自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_air_hk.asp">港澳</a></li>
+                        <li class="menu-item "><a href="g_air_sa.asp">東南亞</a></li>
+                        
+                      </ul>
+      </li>
+                    
+                  
+                    
+                           <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">票券</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_tkt_oversea.asp">國際暢銷票券</a></li>    <li class="menu-item "><a href="g_tkt_tw.asp">台灣暢銷票券</a></li>
+                        </ul>
+                    </li>
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國內旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_tw_tp.asp">團體旅遊</a></li>
+             <li class="menu-item "><a href="g_tw_htl.asp">國內訂房</a></li>
+             <li class="menu-item "><a href="g_tw_fit.asp">國內自由行</a></li>
+           <li class="menu-item "><a href="g_tw_t.asp">台灣主題旅遊</a></li>
+
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                      <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">台中出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_tc_china.asp">大陸直航</a></li>
+             <li class="menu-item "><a href="g_tc_hk.asp">港澳</a></li>
+             <li class="menu-item "><a href="g_tc_na.asp">東北亞</a></li>
+             <li class="menu-item "><a href="g_tc_tw.asp">台灣</a></li>
+
+                        </ul>
+                    </li>-->
+                    
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">高雄出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="g_ks_sa.asp">東南亞</a></li>
+                       <li class="menu-item "><a href="g_ks_china.asp">大陸</a></li>
+                         <li class="menu-item "><a href="g_ks_hk.asp">港澳</a></li>
+            <li class="menu-item "><a href="g_ks_jp.asp">日韓</a></li>
+            <!-- <li class="menu-item "><a href="g_ks_eur.asp">歐亞非</a></li>-->
+            <li class="menu-item "><a href="g_ks_tw.asp">國內旅遊</a></li>
+                        <li class="menu-item "><a href="g_ks_fit.asp">團體自由行</a></li>
+
+
+
+                        </ul>
+                    </li>
+                    
+                    
+                             </ul>
+                             </li>               
+                <!--悠活體驗MENU區塊-->
+                 <li class="menu-item dropdown blue"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="title">悠活體驗<b class="caret"></b></a>
+                   
+                  <ul class="dropdown-menu">
+                   
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國外團體</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="l_kr.asp">韓國</a></li>
+                         <li class="menu-item "><a href="l_sa.asp">東南亞</a></li>           
+                          <li class="menu-item "><a href="l_china.asp">大陸</a></li>
+                         <!--li class="menu-item "><a href="l_hk.asp">港澳</a></li-->
+                         <!--<li class="menu-item "><a href="l_guam.asp">關島帛琉</a></li>-->           
+                         <li class="menu-item "><a href="l_eur.asp">歐洲</a></li>
+                         <li class="menu-item "><a href="l_af.asp">亞非</a></li>
+                         <li class="menu-item "><a href="l_usa.asp">美加</a></li>
+                         <li class="menu-item "><a href="l_aus.asp">紐澳</a></li> 
+                         <!--<li class="menu-item "><a href="l_latin.asp">中南美洲</a></li>--> 
+                         <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">More</a></li>-->
+                      </ul>
+                    </li>
+                    
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">主題旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_cruise.asp">郵輪</a></li>
+                         <!--<li class="menu-item "><a href="a_rail.asp">鐵道</a></li>
+                         <li class="menu-item "><a href="a_festival.asp">節慶</a></li>
+                         <li class="menu-item "><a href="a_gourmet.asp">美食</a></li>
+                         <li class="menu-item "><a href="a_art.asp">人文藝術</a></li>
+                         <li class="menu-item "><a href="a_eco.asp">生態</a></li>
+                         <li class="menu-item "><a href="a_wedding.asp">海外婚禮</a></li> 
+                         <li class="menu-item "><a href="a_club.asp">Club Med</a></li>--> 
+                         <li class="menu-item "><a href="l_island.asp">頂級島嶼</a></li>
+                         <li class="menu-item "><a href="l_sport.asp">運動</a></li> 
+                        
+                      </ul>
+                    </li>
+                    
+                        
+                    <!--li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">雄獅自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_fit_jp.asp">日本</a></li>
+                         <li class="menu-item "><a href="l_fit_kr.asp">韓國</a></li>
+                         <li class="menu-item "><a href="l_fit_thai.asp">泰國</a></li>
+                           <li class="menu-item "><a href="l_fit_my.asp">馬新</a></li>
+                         <li class="menu-item "><a href="l_fit_bali.asp">峇里島</a></li>
+                        
+                      </ul>
+                    </li-->
+                    
+                          
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">航空自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_air_hk.asp">港澳</a></li>
+                        <li class="menu-item "><a href="l_air_china.asp">大陸</a></li>
+                        <li class="menu-item "><a href="l_air_na.asp">東北亞</a></li>
+                        <li class="menu-item "><a href="l_air_sa.asp">東南亞</a></li>
+                        <li class="menu-item "><a href="l_air_w.asp">歐美</a></li>
+                       </ul>
+                    </li>
+                    
+                           
+                     <li class="menu-item dropdown dropdown-submenu"><a href="l_htl.asp">訂房</a>
+                       <!--ul class="dropdown-menu">
+                       <!--  <li class="menu-item "><a href="l_htl.asp#tab1">港澳</a></li>
+                        <li class="menu-item "><a href="l_htl.asp#tab2">大陸</a></li>-->
+                         <!--li class="menu-item "><a href="l_htl.asp#tab3">沖繩</a></li>
+                       <!--  <li class="menu-item "><a href="l_htl.asp#tab4">韓國</a></li>
+                         <li class="menu-item "><a href="l_htl.asp#tab5">峇里島</a></li>
+                          <!-- <li class="menu-item "><a href="l_htl.asp#tab6">歐美</a></li>
+                         <li class="menu-item "><a href="l_htl.asp#tab7">台灣</a></li>
+                         </ul-->
+                    </li>
+                    
+                                        
+                           <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">票券</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_tkt_oversea.asp">國際暢銷票券</a></li>            
+                        <li class="menu-item "><a href="l_tkt_tw.asp">台灣暢銷票券</a></li>
+                        </ul>
+                    </li>
+                    
+                      <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國內旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_tw_tp.asp">團體旅遊</a></li>
+             <li class="menu-item "><a href="l_tw_htl.asp">國內訂房</a></li>
+             <li class="menu-item "><a href="l_tw_fit.asp">國內自由行</a></li>
+             <li class="menu-item "><a href="l_tw_t.asp">台灣主題旅遊</a></li>
+
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                      <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">台中出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="l_tc_china.asp">大陸直航</a></li>
+             <li class="menu-item "><a href="l_tc_hk.asp">港澳</a></li>
+             <li class="menu-item "><a href="l_tc_na.asp">東北亞</a></li>
+             <li class="menu-item "><a href="l_tc_tw.asp">台灣</a></li>
+
+                        </ul>
+                    </li>-->
+                    
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">高雄出發</a>
+                       <ul class="dropdown-menu">
+                         <li class="menu-item "><a href="l_ks_eur.asp">美加</a></li>
+                    <li class="menu-item "><a href="l_ks_china.asp">大陸</a></li>
+                        <li class="menu-item "><a href="l_ks_hk.asp">港澳</a></li>
+             <li class="menu-item "><a href="l_ks_jp.asp">日韓</a></li>
+                         <li class="menu-item "><a href="l_ks_sa.asp">東南亞</a></li>
+              <li class="menu-item "><a href="l_ks_tw.asp">國內旅遊</a></li>
+                          <li class="menu-item "><a href="l_ks_fit.asp">團體自由行</a></li>
+
+
+                        </ul>
+                    </li>
+                    
+                    
+                             </ul>
+                             </li>                 
+               <!--南半球有約MENU區塊-->
+                 <li class="menu-item dropdown gold"><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="title">南半球有約<b class="caret"></b></a>
+                  
+                  <ul class="dropdown-menu">
+                   
+                    <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">國外團體</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_aus.asp">紐澳</a></li>
+                        
+                         </ul>
+                    </li>
+                    
+                     <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">主題旅遊</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_latin.asp">中南美洲</a></li>
+                        
+                         </ul>
+                    </li>
+                  
+                          
+                     <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">航空自由行</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_air_aus.asp">澳洲</a></li>
+                        </ul>
+                    </li>
+                    
+                           
+                    <li class="menu-item dropdown dropdown-submenu"><a href="s_htl.asp" style="content:normal !important">訂房</a>
+                       <!--ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_htl.asp#tab1">紐西蘭</a></li>
+                         <li class="menu-item "><a href="s_htl.asp#tab2">澳洲</a></li>
+                        
+                       </ul-->
+                    </li>
+                    
+                   
+                    
+                    
+                      <!--<li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">台中出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_tc_aus.asp#a">紐西蘭</a></li>
+             <li class="menu-item "><a href="s_tc_aus.asp#b">澳洲</a></li>
+             </ul>
+                    </li>-->
+                    
+                        <li class="menu-item dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">高雄出發</a>
+                       <ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_ks_aus.asp">澳洲</a></li>
+            
+             </ul>
+                    </li>
+                    
+                       <li class="menu-item dropdown dropdown-submenu"><a href="s_airtkt.asp">國際機票</a>
+                       <!--ul class="dropdown-menu">
+                        <li class="menu-item "><a href="s_airtkt.asp">紐西蘭</a></li>
+                         <li class="menu-item "><a href="s_airtkt.asp">澳洲</a></li>
+                        </ul-->
+                    </li>
+                    
+                     
+                             </ul>
+                             </li>  
+                                                    
+                             
+              </ul>                
+            </div></div> </div></div>
+  <!--NAV END-->          
+  </div>
+
+<div id="path_wrapper" style="">
+   <div class="container">
+   <div id="path" class=" visible-lg visible-md visible-sm">
+     <p><span id="now">現在位置</span>食尚饗宴＞國外團體＞</p>
+      <ul>
+        <li><a href="g_jp.asp">日本</a></li>
+        <li><a href="g_kr.asp">韓國</a></li>
+         <li><a href="g_sa.asp">東南亞</a></li>
+        <li><a href="g_china.asp">大陸</a></li>
+        <li><a href="g_hk.asp">港澳</a></li>
+        <li><a href="g_guam.asp">關島帛琉</a></li>
+        <li><a href="g_eur.asp">歐洲</a></li>
+        <!--<li><a href="g_af.asp">亞非</a></li>-->
+        <!--<li><a href="g_usa.asp">美加</a></li>-->
+        <!--<li><a href="g_aus.asp">紐澳</a></li>-->
+        <!--<li><a href="g_latin.asp">中南美洲</a></li>-->
+      </ul>
+      </div>
+    <div id="page">
+   
+    <a href="#a">北海道</a>
+    <a href="#b">東京</a>
+    <a href="#c">關西</a>
+     <a href="#d">九州</a>
+    <a href="#e">北陸</a>
+    <a href="#f">東北</a>
+    </div>
+    <div id="clear"></div>
+    </div>
+    </div>
+<div id="content" style="
+    -webkit-overflow-scrolling: touch;
+">
+   
+    
+   
+  <!--灰底文案區塊-->
+   <div id="events">
+   <div class="container">
+   <div class="row">
+   
+    <!--景點簡介內文-->
+    <div id="intro" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+     <h3>食尚饗宴</h3>
+        <div id="intro_txt">
+     <h4>美味”蟹”逅</h4>
+   <p>蟹類多半在海水溫度由冷轉暖的春夏之交，或是由暖轉涼的秋節時分，尤其是秋冬時節，蟹類開始儲存能量準備過冬，此時母蟹蟹黃及公蟹蟹膏比平常豐富，蟹肉也撐到十分飽滿，也就形成了鮮美的肥蟹。 
+每年中秋之後是品嚐秋蟹最好的季節，而「持螫賞菊」更是自古文人雅士認定的一大樂事。蟹饕客都知道，「九月圓十月尖，持螫飲酒菊花天」，圓臍指的是母蟹，尖臍則為公蟹，也就是農曆九月以後要品嚐雌蟹，因為這時候雌蟹滿肚的蟹黃豐腴，是食客的最愛；十月品嚐則以公蟹為主，此時的雄蟹肉質肥碩鮮嫩，其蟹膏香味濃郁，味道更勝於雌蟹。</p>
+
+ <!--<h4>品酒微醺</h4>
+  <p>葡萄酒的種類有很多，以汽泡的有無分為二大類。無汽泡的葡萄酒有白酒、紅酒及玫瑰紅三種；有汽泡的葡萄酒則有香檳。另外像是雪莉酒或白蘭地就是因為製作的方式不同，但都是葡萄酒的同類。品酒用的杯子是要很講究的，基本條件是杯身要無色且透明且薄，杯口要往內縮，杯腳要有一定的長度，以避免手持杯子時因為手的溫度影響到酒溫，也方便觀察酒的顏色。
+好酒是澄澈不混濁的；顏色則因品種、釀製方法、儲存的時間及葡萄成熟度而十分多樣，白酒陳年越久，顏色越黃澄。紅酒，會隨時間而逐漸變淡，再轉為橙紅或磚紅色，最後呈紅褐色，顏色深濃才是好酒。香檳，主要是氣泡細緻，冒的速度快而且持續著，才是好酒。小心轉動輕搖，再拿起來聞，仔細辨別酒香的種類、濃度和品質。好酒香味不但濃郁，且因香味和葡萄的品種、釀製方法、酒齡甚至土壤都有關係。因隨時間不斷變化，具豐富性。最後淺嚐一小口酒，含在口中稍微動一下，再慢慢嚥下。反覆多次，仔細品嚐酒的酸甜度和濃淡度，紅酒還要判斷單寧酸的強度和品質。而總要酸甜、濃淡適中才是佳品。</p>
+
+<!-- <h4>艾馨園艾草風味餐</h4>
+  <p>艾馨園的田媽媽們秉持著低糖、低鹽、低油的營養需求，將艾草與新鮮摘採的菇蕈做完美的結合，做成一道道養身美味的料理。除了色香味之外，搭配園區內的蔬果，更符合現代人講究生機飲食的養生原則。</p>
+
+ <h4>大田蓮花農場餐廰</h4>
+  <p>大田蓮園餐廳，是觀音鄉內最早的蓮花餐廳。與觀音鄉其他專攻蓮花餐餐廳最大不同，除了有可口的蓮花餐點外，園內精緻的蓮田景觀與庭園造景，可讓遊客在吃吃喝喝之餘，順道欣賞美景。</p>
+
+ <h4>王功海洋自助Buffet</h4>
+  <p>夏日不能錯過的體驗！接著拜訪蚵田了解看著布滿海上的蚵仔，聽著達人所講的蚵之生態及嚐最鮮美活跳跳的珍珠蚵，讓妳滿載而歸。<br>
+★主食：珍珠蚵炒麵＋珍珠蚵麵線<br>
+★菜單：王功首選海鮮魚、爽口蚵仔酥、鮮翠時蔬、黃金地瓜條、私房鮮湯<br>
+★飯後點心：飲料+點心<br>
+★現採新鮮味~碳烤鮮蚵－無限量供應<br>
+★以上採自助式餐點，菜單隨季節食材做變化，新鮮！營養！
+</p>
+
+ <h4>台中一中街瘋小吃</h4>
+  <p>「一中街商圈」熱鬧非凡，聚集許多有特色、道地小吃以及經濟又美味的餐館。如超人氣的阿水茶店、阿ＳＩＲ茶店或超名氣口感十足的豐仁冰與精緻小點薔葳派…等，好吃小吃吃不完。
+</p>  --> 
+      
+     
+         </div>
+    </div>
+    
+    <!--推薦區塊-->
+    <div id="recom" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+         <h3><span>recommendation</span>特別推薦</h3>
+         <div class="row">
+          <!--推薦內容區塊-->
+             <div id="box" class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+             <div class="row">
+                 <div id="recom_img" class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><img src="images/hok2014060901.jpg"></div>
+                 <div id="recom_txt" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                 <h6>北海道.洞爺花火船.函館纜車.小樽音樂盒DIY.三大螃蟹美食溫泉五日</h6>
+                 ★三大螃蟹吃到飽<br>
+                 ★居酒屋和風創作料理【贈啤酒一杯】
+                  </div>
+                  <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05CCYY5" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">立即享 超值價36,900元起</a>
+             </div>
+             </div>
+         <!--推薦內容區塊-->
+             <div id="box" class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+             <div class="row">
+                 <div id="recom_img" class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><img src="images/Okinawa090421-3.jpg"></div>
+                 <div id="recom_txt" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                 <h6>in沖繩.Orion啤酒試飲.紀念杯DIY.神宮祈福.單點燒烤.豪華享樂四日</h6>
+                 ★Orion啤酒廠～乾一杯<br>
+                 ★高級日式網燒烤肉‧單點吃到飽 
+                  </div>
+                    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=12JOAPRCID" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">立即享 超值價28,388元起</a>
+             </div>
+             </div>
+             
+          </div>
+     </div>
+      <!--推薦區塊結束-->
+         
+    </div> 
+   </div> 
+   </div>
+    <!--灰底文案區塊結束-->
+    
+    
+   <!--純產品總區塊-->
+   <div id="product" class="container">
+    
+    <h5 id="a">北海道</h5>
+    
+    
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>愛戀北海道洞爺花火船.熊牧場.企鵝遊行.函館纜車.小樽銀鐘咖啡.三大螃蟹溫泉五日【函/函】</h2>
+    ★三大螃蟹（帝王蟹+長腳蟹+毛蟹）自助餐吃到飽、特別安排【洞爺湖花火船】 ～欣賞浪漫花火+高速空中纜車～函館山鑽石夜景<br>
+★昭和新山熊牧場（★贈每人一袋熊食用蘋果）+登別海洋公園尼克斯～國王企鵝大遊行 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05HHY03" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$32,900元起</a>
+    </div>
+    
+        
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>北海道.洞爺花火船.函館纜車.小樽音樂盒DIY.三大螃蟹美食溫泉五日【KITTY彩繪機】</h2>
+    ★三大螃蟹（帝王蟹+長腳蟹+毛蟹）自助餐吃到飽★居酒屋和風創作料理【贈啤酒一杯】 或 北海道限定嚴選精緻燒肉【贈啤酒一杯】<br>
+★搭乘花火觀賞船～欣賞浪漫花火★高速空中纜車～函館山鑽石夜景★安排音樂工房～安排DIY手製音樂盒 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05CCY05" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$33,900元起</a>
+    </div>
+    
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>愛戀北海道.洞爺花火船.函館纜車.小樽音樂盒DIY.三大螃蟹美食溫泉五日</h2>
+    ★三大螃蟹（帝王蟹+長腳蟹+毛蟹）自助餐吃到飽★居酒屋和風創作料理【贈啤酒一杯】 或 北海道限定嚴選精緻燒肉【贈啤酒一杯】<br>
+★搭乘花火觀賞船～欣賞浪漫花火★高速空中纜車～函館山鑽石夜景★安排音樂工房～安排DIY手製音樂盒 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05CCYY5" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$36,900元起</a>
+    </div>
+  
+  
+  
+   <h5 id="b">東京</h5>
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>【主題旅遊】味覺旅行～東京廚藝課、景觀餐廳、月島燒遊船、大江戶溫泉5日</h2>
+    ★東京廚藝教室體驗★天空樹景觀餐廳★船屋月島文字燒★此行程含領隊服務費及貼心提供每人每晚一瓶礦泉水 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=14TYOFOOD5" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$45,900元起</a>
+    </div>
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>靜岡綠茶之鄉～浪漫東京伊豆半島觀海列車雙溫泉5日</h2>
+    ★特別特別安排二晚溫泉旅館、搭乘日本第一的沿海觀光列車、下田黑船及大室山纜車 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05FSZ02" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$28,900元起</a>
+    </div>
+    
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>靜岡綠茶之鄉～東京迪士尼.久能東照宮.忍野八海.猿劇場.溫泉五日</h2>
+    ★特別安排一晚景觀溫泉飯店 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05FSZ18" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$27,900元起</a>
+    </div>
+    
+  
+  
+   <h5 id="c">關西</h5>
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>【主題旅遊】瀨戶內海~四國直島~小豆島．安藤建築美學5日</h2>
+    ★本行程含領隊服務費及贈送每晚一瓶礦泉水★主廚帶您體驗親手做日式味噌烏龍麵料理 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=KIXML05SP8" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$47,900元起</a>
+    </div>
+    
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>五星四都物語～走訪京都.大阪.神戶.奈良風情.伏見稻荷大社.琵琶湖遊船美食五日</h2>
+    ★特別安排搭乘〈琵琶湖汽船〉遊湖★保證一晚住宿琵琶湖畔渡假酒店【大津王子飯店】
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05KK33A" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$31,900元起</a>
+    </div>
+    
+   
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>世界遺產～姬路城.岡山後樂園.四國小豆島橄欖公園.金刀比羅宮.三井OUTLET五日</h2>
+    ★搭乘瀨戶內海渡輪小豆島橄欖公園★搭乘纜車 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05OKJ5D" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$31,900元起</a>
+    </div>
+    
+  
+  
+    <h5 id="d">九州</h5>
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>《秋賞》南九州霧島神宮.櫻島渡輪.篤姬磯庭園.指宿玉手箱.砂浴溫泉五日(宮崎/鹿兒島)</h2>
+    好禮一：即日起至８／１０前報名付訂，贈旅遊金$１０００元(直接於團費中扣除)★好禮二：篤姬拍攝地:仙巖園(磯庭園)內安排日式抹茶茶道體驗！<br>
+     ★特別安排～加碼贈送★『搭乘觀光特急車-指宿玉手箱』+日本唯一指宿溫泉砂浴溫泉
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05KK231" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$30,900元起</a>
+    </div>
+    
+   
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>《鐵道之旅》五星九州阿蘇.別府海地獄.由布院之森鐵道.柳川遊船五日</h2>
+    ★特急由布院之森觀光列車+南阿蘇鐵道小火車★特別贈送【B-SPEAK】由布院超人氣奶油蛋糕捲★欣賞水鄉風光：柳川人力遊船 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05FF068" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$29,900元起</a>
+    </div>
+    
+   
+  
+   <h5 id="e">北陸</h5>
+    
+    <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>立山奇景企劃～合掌村．上高地．湯國之森．特產料理．採果五日（小松進出)</h2>
+    ★特別安排米其林三星景點～白川鄉合掌村、金澤 兼六園、高山上三之町古街<br>
+★特別贈送採果體驗或果醬DIY一次+每人品嚐鄉土美食米團丸子乙支
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05KK23B" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$30,500元起</a>
+    </div>
+    
+   
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>米其林絕景～北陸立山黑部企劃‧上高地‧合掌村‧鄉村料理‧溫泉五日</h2>
+    ＊贈送飛驒牛奶冰淇淋/每人一支 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP05NN80A" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$32,500元起</a>
+    </div>
+    
+  
+  
+   <h5 id="f">東北</h5>
+   
+   
+   
+     <!--純產品內容區塊-->
+    <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>東北.北海道雙城遊～奧入瀨溪．松島遊船．白鳥號新幹線．函館千萬鑽石夜景五日</h2>
+    ★秋田內陸縱貫線小火車+高速空中纜車～函館山鑽石夜景+松島灣遊覽船 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&amp;sProd=SJP14SH501" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$45,800元起</a>
+    </div>
+    
+  
+  
+    
+   <!--純產品內容區塊-->
+ <!--   <div id="product_box" class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+    <h2>【米之鄉～新潟】．彌彥神社．輕井澤OUTLET．伊香保古街．小木盆舟體驗．精選五日</h2>
+    ★特別安排「宮崎駿動畫～神隱少女」千尋的交通工具～小木盆舟體驗 ★貼心安排淘金樂體驗 
+    </div>
+    <a id="price" href="/webpd/webpdsh00.aspx?sKind=1&sProd=SJP14KIJ01" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">$38,500元起</a>
+    </div>-->
+    
+   
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+   
+   </div> 
+   <!--純產品區塊結束-->
+   
+   
+ </div>
+<script>
+$(window).load(function(){
+
+   $("#path_wrapper").sticky({ topSpacing:50 });
+});
+</script>
+
+
+
+

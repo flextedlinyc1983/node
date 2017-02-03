@@ -1,0 +1,21 @@
+#page a {
+    text-align: center;
+    display: block;
+    padding: 2px;
+    min-width: 80px;
+    max-width: 130px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #000;
+    float: left;
+    color: #fff;
+    margin: 2px 5px 2px 0;
+}
+
+#path_wrapper {
+    width: 100%;
+    background: #fff;
+    margin: 0 auto;
+    z-index: 3;
+}

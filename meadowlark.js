@@ -150,6 +150,16 @@ var bodyParser = require('body-parser')
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(function (req,res,next) {
+	res.locals.usejqmConfig = true;
+	next();
+});
+
+app.get('/test_bootstrap',function (req, res) {
+	res.locals.usejqmConfig = false;
+	res.render('test_bootstrap',{fortune:"<p>abctest</p>"});		
+})
+
 app.get('/getAllUsers',function (req, res) {
 	User.find({},function (err,users) {		
 		// res.json({ message: {users:users} });
