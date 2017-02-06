@@ -1,0 +1,42 @@
+.clearfix:before, .clearfix:after { 
+   content: "";
+   display: table; 
+}
+.clearfix:after {
+   clear: both; 
+}
+.clearfix { 
+   zoom: 1; /* IE6&7 */ 
+}
+
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    line-height: 3em;
+    float: left;    
+}
+
+
+.show {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    background-color:  aquamarine;
+}
+
+
+
+@media only screen and (max-width:480px) {
+    nav ul li {
+        width: 100px;
+        border-right: 2px solid #ccc;
+    }    
+}

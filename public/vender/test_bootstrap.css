@@ -19,3 +19,7 @@
     margin: 0 auto;
     z-index: 3;
 }
+
+.navbar-default .navbar-nav > li > a.dropdown-toggle {
+    color: #ea9090;
+}

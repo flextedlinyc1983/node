@@ -155,6 +155,13 @@ app.use(function (req,res,next) {
 	next();
 });
 
+
+app.get('/test_rwd',function (req, res) {
+	res.sendFile(__dirname + '/public/test_rwd.html');
+})
+
+
+
 app.get('/test_bootstrap',function (req, res) {
 	res.locals.usejqmConfig = false;
 	res.render('test_bootstrap',{fortune:"<p>abctest</p>"});		
