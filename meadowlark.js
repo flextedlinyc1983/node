@@ -156,6 +156,14 @@ app.use(function (req,res,next) {
 });
 
 
+app.get('/swipe_delete',function (req, res) {
+	res.sendFile(__dirname + '/public/swipe_delete.html');
+})
+
+app.get('/ajax_subpub',function (req, res) {
+	res.sendFile(__dirname + '/public/ajax_subpub.html');
+})
+
 app.get('/test_rwd',function (req, res) {
 	res.sendFile(__dirname + '/public/test_rwd.html');
 })

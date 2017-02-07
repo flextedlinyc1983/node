@@ -1,0 +1,6 @@
+ol li a {
+    border: 3px solid aliceblue;
+    padding: 10px;
+    /* width: 100%; */
+    display: block;   
+}

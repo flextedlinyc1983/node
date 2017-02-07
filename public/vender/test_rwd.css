@@ -30,9 +30,18 @@ nav ul li {
     width: 100px;
     border-radius: 10px;
     background-color:  aquamarine;
+    position:absolute;
 }
 
+.banner img {
+    float: left;
+    width:100%;
+}
 
+.banner {
+    height: 354px;
+    position: relative
+}
 
 @media only screen and (max-width:480px) {
     nav ul li {

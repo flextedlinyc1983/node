@@ -1,0 +1,189 @@
+<html><head>
+
+  <title>庫存查詢</title> 
+
+  
+     
+  <link rel="stylesheet" type="text/css" href="github_demo/animatedModal/css/normalize.min.css">
+  <link rel="stylesheet" href="github_demo/animatedModal/css/animate.min.css">
+  <style>
+      #btn-close-modal {
+          width:100%;
+          text-align: center;
+          cursor:pointer;
+          color:#fff;
+      }
+
+  </style>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>     
+  <!-- <script src="//code.jquery.com/jquery-2.0.2.min.js"></script> -->
+  <script src="/js/jquery-2.0.2-beautify.js"></script>
+<!--   <script src="/js/UrlManager.js"></script> -->
+
+        
+  <script src="github_demo/animatedModal/js/animatedModal.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="/vender/ajax_subpub.css">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+
+  <script id="resultTemplate" type="text/html">
+    <% _.each(items, function( item ){ %>
+        <li>
+          <a href="<%= item.link %>">
+            <p>title: <%= item.title %></p>
+            <p>date_taken: <%= item.date_taken %></p>
+            <p>author_id: <%= item.author_id %></p>
+            <img src="<%= item.media.m %>"/>
+          </a>
+        </li>
+    <% });%>
+  </script>
+</head>
+<body>
+
+
+
+<form id="flickrSearch">
+ 
+   <input type="text" name="tag" id="query"/>
+ 
+   <input type="submit" name="submit" value="submit"/>
+ 
+</form>
+ 
+ 
+ 
+<div id="lastQuery" ></div>
+ 
+<ol id="searchResults" style="-webkit-overflow-scrolling: touch;"></ol>
+<!-- <ol id="searchResults" style="
+    height: 450px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+"></ol> -->
+ 
+ 
+<ul>
+  <li><a id="demo01" href="#animatedModal">DEMO01</a></li>
+  <li><a id="demo02" href="#modal-02">DEMO02</a></li>
+</ul>
+
+
+<!--DEMO01-->
+<div id="animatedModal">
+    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+    <div  id="btn-close-modal" class="close-animatedModal"> 
+        CLOSE MODAL
+    </div>
+        
+    <div class="modal-content">
+        <!--Your modal content goes here-->
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+  $(window).load(function(){
+
+  });
+</script>
+
+
+<script>
+  $(document).ready(function(){
+
+  //demo 01
+  $("#demo01").animatedModal({color:'#EFF0F1',opacityIn:0.7});
+
+
+     (function( $ ) {
+ 
+  var o = $({});
+ 
+  $.subscribe = function() {
+    o.on.apply(o, arguments);
+  };
+ 
+  $.unsubscribe = function() {
+    o.off.apply(o, arguments);
+  };
+ 
+  $.publish = function() {
+    o.trigger.apply(o, arguments);
+  };
+
+
+
+   // Pre-compile template and "cache" it using closure
+   var resultTemplate = _.template($( "#resultTemplate" ).html());
+ 
+   // Subscribe to the new search tags topic
+   $.subscribe( "/search/tags", function( e, tags ) {
+       $( "#lastQuery" )
+                .html("<p>Searched for:<strong>" + tags + "</strong></p>");
+   });
+ 
+   // Subscribe to the new results topic
+   $.subscribe( "/search/resultSet", function( e, results ){
+ 
+       $( "#searchResults" ).empty().append(resultTemplate( results ));
+ 
+   });
+ 
+   // Submit a search query and publish tags on the /search/tags topic
+   $( "#flickrSearch" ).submit( function( e ) {
+ 
+       e.preventDefault();
+       var tags = $(this).find( "#query").val();
+ 
+       if ( !tags ){
+        return;
+       }
+ 
+       $.publish( "/search/tags", [ $.trim(tags) ]);
+ 
+   });
+ 
+ 
+   // Subscribe to new tags being published and perform
+   // a search query using them. Once data has returned
+   // publish this data for the rest of the application
+   // to consume
+ 
+   $.subscribe("/search/tags", function( e, tags ) {
+ 
+       $.getJSON( "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
+              tags: tags,
+              tagmode: "any",
+              format: "json"
+            },
+ 
+          function( data ){
+ 
+              if( !data.items.length ) {
+                return;
+              }
+ 
+              $.publish( "/search/resultSet", { items: data.items } );
+       });
+ 
+   });
+ 
+ 
+})( jQuery );
+  });  
+</script>
+
+
+</body>
+</html>

@@ -2,7 +2,10 @@
 
   <title>庫存查詢</title> 
      
-  <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+  <!-- <script src="//code.jquery.com/jquery-2.0.2.min.js"></script> -->
+  <script src="/js/jquery-2.0.2-beautify.js"></script>
+  <script src="/js/UrlManager.js"></script>
+  
 
   <link rel="stylesheet" type="text/css" href="/vender/test_rwd.css">
     
@@ -72,8 +75,24 @@
 </nav> 
 
 
-<div class="show"> 
+<!-- <div class="show"> 
 
+</div> -->
+
+
+<div id="all">
+    <div class="navad">
+        <ul>
+            <li class="active">無名小物</li>
+            <li>高 CP 值人氣機王</li>
+            <li>秋葉原 3C</li>
+        </ul>
+    </div>
+    <div class="banner">
+        <img src="http://www.pjchender.com/pjchender_blog/MaCloud_jQuery/yahoo/banner1.jpg" alt="" />
+        <img src="http://www.pjchender.com/pjchender_blog/MaCloud_jQuery/yahoo/banner2.jpg" alt="" />
+        <img src="http://www.pjchender.com/pjchender_blog/MaCloud_jQuery/yahoo/banner3.jpg" alt="" />
+    </div>
 </div>
 
 <script>
@@ -85,8 +104,58 @@ $(window).load(function(){
 
 <script>
   $(document).ready(function(){
-      
+      $('.show').animate({"width" : "200px","height": "200px","left":"100px","top":"200px"},3000);
+
+        navadfoo();
   });
+
+  function  navadfoo() {
+      var num_li = $(".navad li").length;
+      var img_width = $(window).width();
+      var width_banner = num_li*img_width;
+      var timer = 3000; //  設定輪撥速度
+
+      $(".banner").css("width", width_banner);
+
+      //  當滑鼠移過時，圖片移動到特定位置
+      for (i = 0; i < num_li; i++) {
+          $(".navad li:eq(" + i + ")").mouseenter({
+              id: i
+          }, function(e) {
+              var n = e.data.id
+              // change(n);
+              // alert('test')
+          })
+      }
+  }
+
+
+
+
+  //  當滑鼠移到 nav 時，根據標題移動圖片
+  function change(n) {
+      // clearInterval(clock);
+      // clock = setInterval(auto, timer);
+      position2 = -n * img_width;
+      $(".banner").stop();
+      $(".banner").animate({
+              "left": +position2 + "px"
+          }, 400)
+          //  讓所有的清單變回原本的字體
+      $(".nav li").css({
+              "font-weight": "none",
+              "color": "darkgray",
+              "font-size": "16px",
+              "border-bottom": "none"
+          })
+          //  讓滑鼠移到的清單改變成 hover 字體
+      $(".nav li:eq(" + n + ")").css({
+          "font-weight": "bold",
+          "color": "#0785d4",
+          "font-size": "18px",
+          "border-bottom": "4px solid #07A1D4"
+      })
+  }
 </script>
 
 <!-- <script src="/js/test_rwd.js"></script>   -->
