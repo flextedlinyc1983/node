@@ -304,6 +304,10 @@ app.post('/', function (req, res){
 });
 
 
+app.get('/bootstrap', function (req, res){
+    res.sendFile(__dirname + '/public/bootstrap.html');
+});
+
 app.get('/snapshot', function (req, res){
     res.sendFile(__dirname + '/public/snapshot.html');
 });
